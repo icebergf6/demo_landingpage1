@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,600;0,700;0,800;1,700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container": "#f4ece8",
+          "on-surface-variant": "#59413c",
+          "outline-variant": "#e0bfb9",
+          "surface-variant": "#e9e1dd",
+          "inverse-on-surface": "#f7efeb",
+          "secondary-fixed": "#ffdcc3",
+          "secondary-container": "#fe932c",
+          "error-container": "#ffdad6",
+          "tertiary-fixed": "#95f8a7",
+          "on-secondary-fixed-variant": "#6e3900",
+          "on-tertiary-container": "#98fcaa",
+          "on-primary-container": "#ffded8",
+          "on-primary-fixed": "#3f0400",
+          "surface-container-highest": "#e9e1dd",
+          "on-error-container": "#93000a",
+          "on-surface": "#1e1b19",
+          "surface-tint": "#ad321d",
+          "on-background": "#1e1b19",
+          "surface-dim": "#e0d8d5",
+          "on-secondary-container": "#663500",
+          "tertiary-fixed-dim": "#79db8d",
+          "tertiary": "#005c27",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-high": "#eee7e3",
+          "inverse-primary": "#ffb4a5",
+          "primary": "#96220e",
+          "secondary-fixed-dim": "#ffb77d",
+          "primary-container": "#b83a24",
+          "primary-fixed-dim": "#ffb4a5",
+          "inverse-surface": "#33302d",
+          "secondary": "#904d00",
+          "outline": "#8d716b",
+          "on-tertiary-fixed-variant": "#005323",
+          "on-secondary": "#ffffff",
+          "tertiary-container": "#007735",
+          "surface-bright": "#fff8f5",
+          "on-error": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "primary-fixed": "#ffdad3",
+          "background": "#fff8f5",
+          "surface-container-low": "#faf2ee",
+          "on-primary-fixed-variant": "#8b1907",
+          "on-primary": "#ffffff",
+          "on-tertiary-fixed": "#00210a",
+          "error": "#ba1a1a",
+          "surface": "#fff8f5",
+          "on-secondary-fixed": "#2f1500"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "space-lg": "1.5rem",
+          "gutter-mobile": "0.875rem",
+          "margin": "2rem",
+          "space-xl": "2.5rem",
+          "space-xs": "0.25rem",
+          "gutter": "1.25rem",
+          "space-md": "1rem",
+          "margin-mobile": "1rem"
+        },
+        "fontFamily": {
+          "display-hero": ["Epilogue"],
+          "headline-lg-mobile": ["Epilogue"],
+          "badge-tag": ["Plus Jakarta Sans"],
+          "headline-sm": ["Epilogue"],
+          "title-menu": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "price-display": ["Plus Jakarta Sans"],
+          "label-btn": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "headline-md": ["Epilogue"],
+          "headline-lg": ["Epilogue"],
+          "display-hero-mobile": ["Epilogue"]
+        },
+        "fontSize": {
+          "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+          "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "badge-tag": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "title-menu": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+          "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "price-display": ["20px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+          "label-btn": ["15px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+          "body-md": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+          "headline-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+          "display-hero-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}]
+        }
+      }
+    }
+  };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md shadow-[0_4px_20px_-4px_rgba(184,58,36,0.08)]"><div class="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="beranda" href="#"><img alt="Sangtau Karawang Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbvAim9MhjOXk9ZL-TgonazKLYMtHtQEHwkLfff5VuEtNocMSCKU4UbP-zazOuR3On8BK21RgM-GPo85wv4UwPM7M3Ig11hL_j-8iJOZijXYexBc3vkyl13F0QGkOmSbU7RXHjgD1281RTwXn_CsVoA39RjPbeJWjVMIQOATHJD5olDIES0DIIal2R7G4BWfAaxx28cxDFiQ1vSBsuFDgkf6Nyzhs6r82Vzf8WhGAjPXP_Fl8XtXMiCg"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary group-hover:text-primary-container transition-colors">Sangtau Karawang</span><span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-badge-tag text-badge-tag uppercase">Sejak 1997</span></div><span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline-block">Legenda Kuliner Khas Karawang</span></div></a></div><nav class="hidden lg:flex items-center gap-space-xs p-1 bg-surface-container-low rounded-xl" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm"><a aria-current="page" class="px-space-md py-space-sm transition-all bg-primary-container text-on-primary-container font-bold rounded-lg shadow-sm" data-path="beranda" href="#">Beranda</a><a class="px-space-md py-space-sm text-on-surface-variant font-label-btn text-label-btn rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="menu-dan-varian" href="#">Menu &amp; Varian</a><a class="px-space-md py-space-sm text-on-surface-variant font-label-btn text-label-btn rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="cerita-warisan" href="#">Cerita Warisan</a><a class="px-space-md py-space-sm text-on-surface-variant font-label-btn text-label-btn rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="lokasi-dan-kontak" href="#">Lokasi &amp; Kontak</a></nav><div class="flex items-center gap-space-md"><div class="hidden xl:flex flex-col text-right"><span class="font-badge-tag text-badge-tag text-tertiary flex items-center justify-end gap-1"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span> Buka Hari Ini</span><span class="font-body-sm text-body-sm text-on-surface-variant">08.00 - 21.00 WIB</span></div><a class="flex items-center gap-space-xs px-space-md py-space-sm bg-tertiary-container text-on-tertiary rounded-lg font-label-btn text-label-btn hover:bg-tertiary transition-all shadow-[0_4px_14px_rgba(0,119,53,0.25)]" href="https://wa.me/6281234567890" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">chat</span><span class="hidden sm:inline">Pesan via WhatsApp</span><span class="sm:hidden">Pesan WA</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface-container-low py-space-xl lg:py-24">
+<!-- Ambient Spice Glows -->
+<div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="pointer-events-none absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-secondary-container/15 blur-3xl"></div>
+<div class="max-w-7xl mx-auto px-gutter relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Text Column -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs self-start px-space-sm py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+<span class="font-badge-tag text-badge-tag uppercase tracking-wider">Warisan Asli Sejak 1997 • Nagasari Karawang</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface">
+            Cita Rasa Otentik <br class="hidden sm:inline"/>
+<span class="text-primary underline decoration-secondary-container decoration-wavy underline-offset-8">Kuliner Khas Karawang</span> <br class="hidden sm:inline"/>
+            Sejak 1997.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            Nikmati kehangatan dan kelezatan bumbu warisan Sangtau legendaris dengan kuah kaldu rempah melimpah, disajikan higienis dengan harga merakyat hanya <strong class="text-primary font-bold">Rp 15.000</strong> per porsi.
+          </p>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm bg-primary text-on-primary rounded-lg font-label-btn text-label-btn hover:bg-primary-container transition-all shadow-[0_8px_20px_rgba(150,34,14,0.28)] active:scale-95" href="#menu-populer">
+<span class="material-symbols-outlined text-[20px]">restaurant_menu</span>
+<span>Lihat Menu Lengkap</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm bg-tertiary-container text-on-tertiary rounded-lg font-label-btn text-label-btn hover:bg-tertiary transition-all shadow-[0_8px_20px_rgba(0,119,53,0.22)] active:scale-95" href="https://wa.me/6281234567890?text=Halo%20Sangtau%20Karawang,%20saya%20ingin%20memesan%20porsi%20hangat%20hari%20ini" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Pesan via WhatsApp</span>
+</a>
+</div>
+<!-- Trust Badges Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-md">
+<div class="flex items-center gap-space-xs p-space-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[22px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<div class="flex flex-col">
+<span class="font-title-menu text-title-menu text-on-surface leading-none">4.9/5</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Kepuasan Warga</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary text-[22px]">history_edu</span>
+<div class="flex flex-col">
+<span class="font-title-menu text-title-menu text-on-surface leading-none">28+ Thn</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Resep Otentik</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[22px]" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+<div class="flex flex-col">
+<span class="font-title-menu text-title-menu text-on-surface leading-none">100%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Halal &amp; Higienis</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs p-space-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[22px]">pin_drop</span>
+<div class="flex flex-col">
+<span class="font-title-menu text-title-menu text-on-surface leading-none">Pusat Kota</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Karawang Barat</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Hero Showcase -->
+<div class="lg:col-span-5 relative">
+<div class="relative mx-auto max-w-md lg:max-w-none">
+<!-- Warm layered card backdrop -->
+<div class="absolute -inset-4 bg-gradient-to-tr from-secondary-container/20 to-primary/10 rounded-2xl transform rotate-2"></div>
+<div class="relative rounded-2xl overflow-hidden bg-surface-container-lowest shadow-[0_16px_36px_-6px_rgba(150,34,14,0.18)]">
+<img class="w-full h-[420px] object-cover" data-alt="Steaming authentic Indonesian Sangtau noodle soup in a traditional earthenware ceramic bowl with rich spiced golden broth, minced savory toppings, crisp shallots, spring onions, boiled egg slices, and red chili sambal on a warm dark wooden table surrounded by fresh ingredients like lemongrass, shallots, and red chili peppers in warm cozy natural morning sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEnal6DozN9UISSM4DJyGTwwKZUoDysC3c9eW_5BYZX91qGjUmUZT7QtJcfKk8isV6l0seHG_mbYJJs7jCA9vPbEowRD_eZqln97mm6bpkA0nQGsgmH7BAjRcmdhXHjA6BRXLChq-NoGYUE4774aCcjilB7WPftV8tLeciqz8xbvq9Bg-0bPlcq3bBqMaaoboguc3FJDVdpnyX9f8Pu5MG3-8O75kH-ZEp2PcAvqgsdn9TLYzkmG-2Pw"/>
+<!-- Floating Highlight Badge -->
+<div class="absolute bottom-4 left-4 right-4 p-space-sm bg-surface-bright/95 backdrop-blur-md rounded-xl shadow-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">local_fire_department</span>
+</div>
+<div>
+<h3 class="font-title-menu text-title-menu text-on-surface leading-tight">Sangtau Spesial Warisan</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Disajikan segar &amp; mengepul hangat</p>
+</div>
+</div>
+<span class="font-price-display text-price-display text-primary whitespace-nowrap">Rp 15.000</span>
+</div>
+<!-- Top Pill -->
+<div class="absolute top-4 right-4 px-space-sm py-1 bg-surface-container-lowest/90 backdrop-blur-sm rounded-full font-badge-tag text-badge-tag text-on-surface flex items-center gap-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Siap Dipesan Hari Ini
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Mengapa Sangtau Menjadi Legenda -->
+<section class="w-full py-space-xl bg-surface">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div>
+<span class="font-badge-tag text-badge-tag text-secondary uppercase tracking-widest block mb-space-xs">Dedikasi Rasa Nusantara</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Mengapa Sangtau Menjadi Legenda Karawang?</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Lebih dari sekadar semangkuk hidangan, Sangtau adalah ikatan memori rasa yang terus dijaga kemurniannya tanpa kompromi sejak masa keemasan 1997.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1 -->
+<div class="flex flex-col p-space-lg bg-surface-container-low rounded-2xl hover:bg-surface-container transition-all group">
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[30px]">hourglass_top</span>
+</div>
+<div class="flex items-center gap-2 mb-space-xs">
+<span class="font-badge-tag text-badge-tag text-secondary font-bold uppercase">Konsistensi 28 Tahun</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Resep Turun Temurun (1997)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+            Takaran bumbu rahasia yang diracik langsung oleh sang perintis. Tiada zat pewarna dan pengawet buatan, menjaga keaslian rasa seperti hari pertama dibuka.
+          </p>
+<div class="mt-space-md pt-space-sm flex items-center gap-2 text-primary font-label-btn text-label-btn">
+<span>Cita rasa tak lekang waktu</span>
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col p-space-lg bg-surface-container-low rounded-2xl hover:bg-surface-container transition-all group">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[30px]">savings</span>
+</div>
+<div class="flex items-center gap-2 mb-space-xs">
+<span class="font-badge-tag text-badge-tag text-primary font-bold uppercase">Harga Merakyat</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Kenikmatan Cuma Rp 15.000</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+            Komitmen kami agar semua kalangan, pekerja pabrik, pelajar, hingga lansia, senantiasa dapat menikmati santapan bergizi yang mengenyangkan tanpa rasa waswas di dompet.
+          </p>
+<div class="mt-space-md pt-space-sm flex items-center gap-2 text-secondary font-label-btn text-label-btn">
+<span>Porsi mantap &amp; mengenyangkan</span>
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col p-space-lg bg-surface-container-low rounded-2xl hover:bg-surface-container transition-all group">
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-space-md group-hover:scale-105 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[30px]">soup_kitchen</span>
+</div>
+<div class="flex items-center gap-2 mb-space-xs">
+<span class="font-badge-tag text-badge-tag text-tertiary font-bold uppercase">Kualitas Rempah Lokal</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Bumbu Segar &amp; Gurih Alami</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+            Perpaduan bawang merah Brebes, rempah sangrai khas Sunda, dan kaldu tulang sapi perlahan matang yang menghasilkan semerbak harum saat kuah panas diguyurkan.
+          </p>
+<div class="mt-space-md pt-space-sm flex items-center gap-2 text-tertiary font-label-btn text-label-btn">
+<span>Bahan segar pasar harian</span>
+<span class="material-symbols-outlined text-[18px]">spa</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Sekilas Menu Populer (Featured Menu Teaser) -->
+<section class="w-full py-space-xl bg-surface-container-low" id="menu-populer">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-sm mb-space-lg">
+<div>
+<span class="font-badge-tag text-badge-tag text-primary uppercase tracking-widest block mb-space-xs">Pilihan Terfavorit Pengunjung</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Menu Legendaris Sangtau</h2>
+</div>
+<div class="inline-flex items-center gap-2 px-space-md py-space-xs bg-surface-container rounded-full text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span>
+<span>Dibuat dadakan saat dipesan</span>
+</div>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Item 1: Original -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_4px_16px_-2px_rgba(184,58,36,0.06)] flex flex-col group hover:-translate-y-1 transition-transform">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Warm bowl of Original Sangtau Karawang with tender soft noodles, golden fragrant broth, chopped chives, seasoned minced chicken, and crispy golden kerupuk on top, rustic warm tabletop style shot with appetizing steam rising." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOYrUQP2zpiSUwO2IBk7SZfee2-rcnfM_POTn8Du2HgMb9lOXR8eBBY8OS41wRrNL-VDHWkKxvEqilYSb_ReUPHXc--vudTmhl_frJ8uXC0txZ6tlG4Y2GPP5F_8DrZaKsLKKEDY8ijTvYF5YiFAkR3cWYKe4cvbN0WSQ94AMwKKi8CDRVg823Kpy9YN-YYgVmXCEkDEBHoQtlaXN90uOs8PA9TM3yLNPTFqIYTrhHOgbTujBvVnWRfw"/>
+<div class="absolute top-3 right-3 px-space-sm py-1 rounded bg-secondary-container text-on-secondary-fixed font-price-display text-price-display shadow-md">
+              Rp 15.000
+            </div>
+<div class="absolute bottom-3 left-3 px-space-sm py-0.5 rounded-full bg-surface-bright/90 backdrop-blur-sm text-on-surface font-badge-tag text-badge-tag flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">star</span> Best Seller Sejak 1997
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-title-menu text-title-menu text-on-surface">Sangtau Original Gurih</h3>
+<span class="font-badge-tag text-badge-tag text-tertiary font-bold bg-tertiary-fixed/30 px-2 py-0.5 rounded">Tersedia</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-space-md">
+              Racikan orisinal legendaris dengan kuah kaldu rempah gurih lembut, taburan ayam cincang bumbu kuning, tauge renyah, dan kerupuk pangsit khas Sangtau.
+            </p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-body-sm text-body-sm text-outline">Porsi Pas Kenyang</span>
+<a class="inline-flex items-center gap-1 px-space-md py-space-xs bg-primary text-on-primary rounded-lg font-label-btn text-label-btn hover:bg-primary-container transition-colors shadow-sm" href="https://wa.me/6281234567890?text=Halo%20Sangtau%20Karawang,%20saya%20pesan%20Sangtau%20Original%20Gurih" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Pesan</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Item 2: Pedas Nampol -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_4px_16px_-2px_rgba(184,58,36,0.06)] flex flex-col group hover:-translate-y-1 transition-transform">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Bowl of spicy Sangtau Karawang Ekstra Pedas with vibrant reddish chili broth, whole bird's eye chilies, crispy fried garlic chips, savory shredded meat, and fresh scallions served in an artisanal bowl on an authentic woven mat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrpdVu781x0nOdFEgZtAHPp9ne4XdM-srmzSYvqKeXS9QTPvliYqFWAgYElglgpC_ovurV5d9Q0NXIlSGcRjSLBd35OYyn7hfJCcgUwP904fQjJWpYnH3YqNG8rCwHEfYetXc6DaVnNKW5OQZz4cgq0bvXFtO8CrCGPuQlN89euWpnraCj9g7uUc3FMjCLHHUrEVUs76Chgc3-SmgU5An71BI1jYrZ8ELtrL6H3DGp0UjmiG-wepK3Fg"/>
+<div class="absolute top-3 right-3 px-space-sm py-1 rounded bg-secondary-container text-on-secondary-fixed font-price-display text-price-display shadow-md">
+              Rp 16.000
+            </div>
+<div class="absolute bottom-3 left-3 px-space-sm py-0.5 rounded-full bg-primary text-on-primary font-badge-tag text-badge-tag flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span> Sambal Ulek Segar
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-title-menu text-title-menu text-on-surface">Sangtau Ekstra Pedas Nampol</h3>
+<span class="font-badge-tag text-badge-tag text-tertiary font-bold bg-tertiary-fixed/30 px-2 py-0.5 rounded">Tersedia</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-space-md">
+              Sensasi kuah kaldu merah membara berpadu dengan ulekan cabai rawit domba pilihan. Pedas segar nendang di lidah tanpa menghilangkan rasa kaldu rempah gurihnya.
+            </p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-body-sm text-body-sm text-outline">Level Pedas: 1-5</span>
+<a class="inline-flex items-center gap-1 px-space-md py-space-xs bg-primary text-on-primary rounded-lg font-label-btn text-label-btn hover:bg-primary-container transition-colors shadow-sm" href="https://wa.me/6281234567890?text=Halo%20Sangtau%20Karawang,%20saya%20pesan%20Sangtau%20Ekstra%20Pedas%20Nampol" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Pesan</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Item 3: Komplit Telur & Bakso -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_4px_16px_-2px_rgba(184,58,36,0.06)] flex flex-col group hover:-translate-y-1 transition-transform">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Complete deluxe Sangtau Karawang served with seasoned braised chicken, halved boiled egg with vibrant yolk, handmade meatballs, crisp fried wonton crackers, rich warm broth, and fresh aromatic herbs in a traditional dining setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNGTddN0xpDJu-l7vr0Q5Za4wWbHMsFe-CXNm1YKyEsxRMANE7WZv8aTBnAQ1VUZgYzsJuw_pLfqHaa5vyFWLWF5MvZ6TQfiSIGf7qZ8IwejruR30ANkBTMGIa2CTSXRbkZsUtu4afoavyR3fBY4Mg5Zls3Lr-BvHx5LC5b7JsokQNkvEwmtLqGzZqNGU7A2qOyzY94UzkkiCSZHnB-9QvJR_xzULDaA4rnmVC-h_-Hgasqxuwb5QnLg"/>
+<div class="absolute top-3 right-3 px-space-sm py-1 rounded bg-secondary-container text-on-secondary-fixed font-price-display text-price-display shadow-md">
+              Rp 20.000
+            </div>
+<div class="absolute bottom-3 left-3 px-space-sm py-0.5 rounded-full bg-surface-bright/90 backdrop-blur-sm text-on-surface font-badge-tag text-badge-tag flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">workspace_premium</span> Topping Terlengkap
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-title-menu text-title-menu text-on-surface">Sangtau Komplit Spesial</h3>
+<span class="font-badge-tag text-badge-tag text-tertiary font-bold bg-tertiary-fixed/30 px-2 py-0.5 rounded">Tersedia</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow mb-space-md">
+              Kenikmatan paripurna semangkuk Sangtau lengkap dengan tambahan telur rebus bumbu rempah gurih, butiran bakso sapi kenyal alami, dan pangsit basah istimewa.
+            </p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-body-sm text-body-sm text-outline">Paket Juara Lapar</span>
+<a class="inline-flex items-center gap-1 px-space-md py-space-xs bg-primary text-on-primary rounded-lg font-label-btn text-label-btn hover:bg-primary-container transition-colors shadow-sm" href="https://wa.me/6281234567890?text=Halo%20Sangtau%20Karawang,%20saya%20pesan%20Sangtau%20Komplit%20Spesial%20Telur%20Bakso" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Pesan</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Cerita Singkat Kami (Story Teaser) -->
+<section class="w-full py-space-xl bg-surface">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Visual Nostalgia / Vintage photo teaser -->
+<div class="lg:col-span-5 order-2 lg:order-1">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-full h-full rounded-2xl bg-secondary-fixed/50 transform -rotate-1"></div>
+<div class="relative rounded-2xl overflow-hidden shadow-xl bg-surface-container-high">
+<img class="w-full h-96 object-cover" data-alt="An Indonesian elder cook stirring a giant steaming pot of aromatic broth over an old-fashioned kitchen hearth with wooden ladle, warm nostalgic sepia-tinted natural atmospheric lighting, displaying craft culinary heritage in Karawang." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOOvACfTYFn2D8zQtg5I4gGWXE253tr-Kx9SnCzGf0VfrynUUodhzkeGlGVMtwxfZNxPNxMR9kW34tWVqJez52hJFSpPuZyL0WaHYjolK9QklvWr30pVS7Trpqut8c2APouZcnPnb3v0lV7cYXZBDSovsD5Nle3vwXBKnaICWCHBSPHet43G-CVmEejXFwRAJMF9C1_tsF3JNwKLQQf5DSDLKjLxaTQg0o7HocoF3AnyL3F4nO_4UkAQ"/>
+<div class="p-space-md bg-surface-container-lowest">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-badge-tag text-badge-tag text-primary uppercase block">Kedai Blok Yanten</span>
+<span class="font-title-menu text-title-menu text-on-surface">Jl. K.H. Dewantara Nagasari</span>
+</div>
+<span class="px-space-sm py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-badge-tag text-badge-tag rounded-full">Est. 1997</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Story Content -->
+<div class="lg:col-span-7 flex flex-col gap-space-md order-1 lg:order-2">
+<div class="inline-flex items-center gap-space-xs self-start px-space-sm py-1 rounded-full bg-surface-container text-primary font-badge-tag text-badge-tag uppercase">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>Jejak Warisan Rasa</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+            Dari Gerobak Sederhana di Nagasari, Menjadi Rasa Kebanggaan Karawang.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Perjalanan rasa Sangtau bermula pada akhir tahun 1997 di sudut Jl. K. H. Dewantara. Di tengah perputaran zaman dan pesatnya denyut industri kota Karawang, resep kuah kaldu rempah kami tidak pernah berubah setitik pun.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Bagi ribuan warga Karawang, semangkuk Sangtau bukan sekadar pengisi perut di jam istirahat kerja atau pulang sekolah. Ia adalah kepul kenikmatan yang menenangkan hati, merawat persaudaraan, dan membangkitkan nostalgia masa kecil.
+          </p>
+<div class="pt-space-xs">
+<a class="inline-flex items-center gap-space-xs text-primary hover:text-primary-container font-label-btn text-label-btn transition-colors group" data-path="cerita-warisan" href="#">
+<span>Baca Selengkapnya Kisah Sangtau 1997</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Ulasan Pelanggan Setia (Social Proof & Testimonials) -->
+<section class="w-full py-space-xl bg-surface-container-high/40">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="text-center max-w-2xl mx-auto mb-space-xl">
+<span class="font-badge-tag text-badge-tag text-secondary uppercase tracking-widest block mb-space-xs">Suara Pelanggan Setia</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Dicintai dari Generasi ke Generasi</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+          Simak cerita mereka yang menjadikan Sangtau bagian dari santapan wajib mingguan di Karawang.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Review 1 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1 text-secondary mb-space-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-space-md italic">
+              "Dari zaman saya masih SMP di dekat alun-alun tahun 2004 sampai sekarang sudah punya dua anak, rasa gurih kaldunya persis sama! Harganya Rp 15 ribu tetap bersahabat sekali."
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm border-t-0 bg-surface-container-low p-space-sm rounded-xl">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold">
+              BS
+            </div>
+<div>
+<h4 class="font-title-menu text-title-menu text-on-surface text-[15px] leading-tight">Bambang S.</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Warga Asli Nagasari, Karawang Barat</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1 text-secondary mb-space-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-space-md italic">
+              "Setiap pulang dinas dari kawasan KIIC, mampir ke Sangtau jadi ritual wajib. Kuah pedas nampolnya langsung bikin segar badan dan capek lembur hilang seketika."
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm border-t-0 bg-surface-container-low p-space-sm rounded-xl">
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold">
+              RA
+            </div>
+<div>
+<h4 class="font-title-menu text-title-menu text-on-surface text-[15px] leading-tight">Riana Anggraini</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Karyawan Industri Surya Cipta</span>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-1 text-secondary mb-space-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-space-md italic">
+              "Kuliner khas Karawang yang paling jujur bumbunya. Gak pelit kuah dan topping kerupuknya kriuk renyah. Pelayanan cepat dan bungkus takeaway-nya rapi higienis."
+            </p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-sm border-t-0 bg-surface-container-low p-space-sm rounded-xl">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold">
+              FH
+            </div>
+<div>
+<h4 class="font-title-menu text-title-menu text-on-surface text-[15px] leading-tight">Farhan Hidayat</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Food Blogger &amp; Wisatawan</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Banner Pemesanan Cepat & Rute Lokasi -->
+<section class="w-full py-space-xl bg-surface">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="relative rounded-3xl overflow-hidden bg-primary text-on-primary shadow-2xl p-space-lg md:p-space-xl">
+<!-- Background organic shapes -->
+<div class="pointer-events-none absolute -bottom-16 -right-16 w-80 h-80 rounded-full bg-secondary-container/20 blur-2xl"></div>
+<div class="pointer-events-none absolute -top-16 -left-16 w-64 h-64 rounded-full bg-surface-bright/10 blur-2xl"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<div class="lg:col-span-7 flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-space-xs self-start px-space-sm py-1 rounded-full bg-on-primary/10 text-on-primary-container font-badge-tag text-badge-tag uppercase">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span>Layanan Pesan Antar &amp; Dine-In</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-primary">
+              Makan Siang atau Santap Malam Hangat Hari Ini?
+            </h2>
+<p class="font-body-lg text-body-lg text-on-primary/90">
+              Kunjungi kedai kami langsung di <strong class="text-secondary-fixed">Blok Yanten No. 2, Jl. K.H. Dewantara Nagasari</strong>, atau kirimkan pesanan Anda sekarang via WhatsApp untuk pengiriman kilat.
+            </p>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm bg-tertiary-container text-on-tertiary rounded-lg font-label-btn text-label-btn hover:bg-tertiary transition-transform active:scale-95 shadow-md" href="https://wa.me/6281234567890?text=Halo%20Sangtau%20Karawang,%20saya%20mau%20pesan%20antar%20sekarang" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span>Chat WhatsApp Cepat</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm bg-surface-bright text-primary rounded-lg font-label-btn text-label-btn hover:bg-surface-container transition-transform active:scale-95 shadow-md" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">directions</span>
+<span>Rute Google Maps</span>
+</a>
+</div>
+</div>
+<!-- Location Snapshot Card -->
+<div class="lg:col-span-5">
+<div class="bg-surface-container-lowest text-on-surface p-space-md rounded-2xl shadow-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">storefront</span>
+<span class="font-title-menu text-title-menu text-on-surface">Kedai Pusat Karawang</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-badge-tag text-badge-tag">
+                  Buka s/d 21.00 WIB
+                </span>
+</div>
+<!-- Map container triggering platform Google Maps static pipeline -->
+<div class="w-full h-44 rounded-xl bg-cover bg-center overflow-hidden shadow-inner flex items-end p-space-sm" data-location="Blok Yanten No. 2, Jl. K. H. Dewantara, Nagasari, Karawang Barat, Jawa Barat" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCdF5afw3RJXW8Sf_c8dOlVc_CHw-6L6ZnOM8ZyiAtNvUPIe3jm6HnOAn4KpNTkQu4gSYHRvogsr1Ondq4KBdTAmXHDdABLwI18L6cNwO7DsIl5Izp0UTXliEmVURFnNOnQVJnsQwyh3fsIXQfCTWmKqqUmTEOJ9bgv6R2zXOPMGJYtRJjN00Tg0uQVL8hcb15RDd_T19AGUP4-tfcwU8ckFjKsKEFn04RrqxliGVWsjtSrUVQuYdQLLg')">
+<span class="px-space-xs py-1 rounded bg-surface/90 backdrop-blur-sm text-on-surface font-badge-tag text-badge-tag flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">pin_drop</span> Titik Kedai Sangtau
+                </span>
+</div>
+<div class="flex flex-col gap-1 text-on-surface-variant font-body-sm text-body-sm pt-space-xs">
+<p><strong class="text-on-surface font-semibold">Alamat:</strong> Blok Yanten No. 2, Nagasari, Karawang Barat</p>
+<p><strong class="text-on-surface font-semibold">Waktu Operasional:</strong> Buka Setiap Hari (08.00 - 21.00 WIB)</p>
+<p><strong class="text-on-surface font-semibold">Kemudahan Parkir:</strong> Tersedia parkir motor &amp; mobil santai</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Simple micro-interaction for scroll spy & interactive touch feel
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
+  });
+</script></main><footer class="w-full bg-surface-container-low text-on-surface border-t-0 shadow-[0_-4px_24px_rgba(184,58,36,0.04)] mt-space-xl"><div class="max-w-7xl mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary">Sangtau Karawang</span></div><p class="font-body-md text-body-md text-on-surface-variant">Kuliner otentik legendaris khas Karawang yang senantiasa menjaga keaslian bumbu warisan sejak 1997. Cita rasa gurih hangat, higienis, dan merakyat hanya Rp 15.000 per porsi.</p><div class="flex items-center gap-space-xs pt-space-xs"><span class="px-space-sm py-1 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-badge-tag text-badge-tag">Resep Tradisi 1997</span><span class="px-space-sm py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-badge-tag text-badge-tag">100% Halal</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-menu text-title-menu text-on-surface flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px]">location_on</span> Alamat Kedai</span><p class="font-body-md text-body-md text-on-surface-variant">Blok Yanten No. 2, Jl. K. H. Dewantara, Kel. Nagasari, Kec. Karawang Barat, Kab. Karawang, Jawa Barat 41312</p><span class="font-body-sm text-body-sm text-outline">Patokan: Dekat kawasan pusat kota Karawang</span></div><div class="flex flex-col gap-space-sm"><span class="font-title-menu text-title-menu text-on-surface flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[20px]">schedule</span> Jam Operasional</span><p class="font-body-md text-body-md text-on-surface-variant"><strong class="text-on-surface font-semibold">Setiap Hari (Senin - Minggu)</strong><br/>08.00 - 21.00 WIB</p><div class="pt-space-xs"><span class="font-body-sm text-body-sm text-on-surface-variant block mb-space-xs">Layanan Pesanan:</span><div class="flex flex-wrap gap-space-xs"><span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface font-badge-tag text-badge-tag">Makan di Tempat</span><span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface font-badge-tag text-badge-tag">Bungkus / Takeaway</span><span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface font-badge-tag text-badge-tag">Pesan Antar WA</span></div></div></div><div class="flex flex-col gap-space-sm"><span class="font-title-menu text-title-menu text-on-surface flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[20px]">share</span> Tautan &amp; Kemitraan</span><div class="flex flex-col gap-space-xs"><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="#"><span class="material-symbols-outlined text-[18px]">storefront</span> Katalog Menu WhatsApp</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="#"><span class="material-symbols-outlined text-[18px]">map</span> Petunjuk Google Maps</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="#"><span class="material-symbols-outlined text-[18px]">photo_camera</span> Galeri Dokumentasi</a></div><div class="mt-space-sm p-space-sm rounded-lg bg-surface-container flex flex-col gap-1"><span class="font-badge-tag text-badge-tag text-primary uppercase">Inisiatif Transformasi Digital</span><span class="font-body-sm text-body-sm text-on-surface-variant">Didukung kolaborasi program literasi UMKM BPSDM Komdigi bersama BPS Kabupaten Karawang.</span></div></div></div><div class="pt-space-lg mt-space-lg border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center sm:text-left"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Sangtau Karawang • Kuliner Legendaris Karawang Sejak 1997. Seluruh Hak Cipta Dilindungi.</p><div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm"><a class="hover:text-primary transition-colors" href="#">Kemitraan UMKM</a><span>•</span><a class="hover:text-primary transition-colors" href="#">Kebijakan Higienitas</a><span>•</span><a class="hover:text-primary transition-colors" href="#">Hubungi Kami</a></div></div></div></footer><div class="lg:hidden fixed bottom-4 left-4 right-4 z-40"><a class="w-full flex items-center justify-center gap-space-xs py-space-sm px-space-md bg-tertiary-container text-on-tertiary rounded-xl font-label-btn text-label-btn shadow-[0_8px_24px_rgba(0,119,53,0.35)] active:scale-[0.98] transition-transform" href="https://wa.me/6281234567890" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[20px]">chat</span> Pesan via WhatsApp Sekarang • Rp 15.000</a></div></body></html>

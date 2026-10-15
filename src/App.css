@@ -1,0 +1,29 @@
+/* Sangtau Karawang Custom Application Styles */
+
+/* Continuous Smooth Infinite Marquee Carousel */
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-infinite:hover,
+.animate-marquee-infinite.paused {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee-infinite {
+    animation-duration: 25s;
+  }
+}

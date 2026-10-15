@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Circular Warm Background -->
+  <circle cx="32" cy="32" r="30" fill="#96220E"/>
+  <circle cx="32" cy="32" r="28" fill="#FFF8F5"/>
+  <circle cx="32" cy="32" r="26" fill="#B83A24"/>
+
+  <!-- Steaming Pot / Bowl -->
+  <path d="M16 33C16 42.5 23.16 50 32 50C40.84 50 48 42.5 48 33H16Z" fill="#FFF8F5"/>
+  <path d="M18 34C18 41.5 24.27 47.5 32 47.5C39.73 47.5 46 41.5 46 34H18Z" fill="#FE932C"/>
+
+  <!-- Broth & Noodles texture -->
+  <ellipse cx="32" cy="34" rx="14" ry="4" fill="#904D00"/>
+  <ellipse cx="32" cy="33.5" rx="12" ry="3" fill="#FFDCC3"/>
+
+  <!-- Tofu / Topping Cubes -->
+  <rect x="25" y="31" width="4" height="4" rx="0.5" fill="#FFF8F5"/>
+  <rect x="33" y="32" width="4" height="4" rx="0.5" fill="#007735"/>
+  <circle cx="30" cy="34" r="2" fill="#BA1A1A"/>
+
+  <!-- Steam wisps -->
+  <path d="M26 26C24 23 28 20 26 17" stroke="#FFF8F5" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M32 25C30 21 34 18 32 14" stroke="#FFDCC3" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M38 26C36 23 40 20 38 17" stroke="#FFF8F5" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
