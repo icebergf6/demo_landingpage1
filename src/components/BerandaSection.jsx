@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TESTIMONIALS } from '../data/menuData';
+import { TESTIMONIALS, CONTACT_INFO } from '../data/menuData';
 
 export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNavigateLokasi }) {
   // Interactive Hero Photo Switcher
@@ -75,8 +75,8 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
               </h1>
 
               <p className="text-[#59413c] text-base sm:text-lg leading-relaxed max-w-2xl">
-                Nikmati kelezatan tahu sutra lembut dipadu bumbu kacang gurih legit, kucuran kecap manis khas, dan taburan bawang goreng renyah melimpah. Disajikan hangat dadakan hanya{' '}
-                <strong className="text-[#96220e] font-extrabold">Rp 15.000</strong> per porsi.
+                Nikmati kelezatan tahu Cina lembut tanpa pengawet dipadu bumbu kacang gurih legit, kucuran kecap manis khas, dan taburan bawang goreng renyah melimpah. Disajikan hangat dadakan mulai{' '}
+                <strong className="text-[#96220e] font-extrabold">Rp 13.000</strong> (Porsi Setengah) hingga <strong className="text-[#96220e] font-extrabold">Rp 18.000</strong> (Jumbo).
               </p>
 
               {/* CTAs */}
@@ -87,11 +87,11 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#96220e] text-white rounded-xl text-sm sm:text-base font-bold hover:bg-[#b83a24] transition-all shadow-[0_8px_20px_rgba(150,34,14,0.28)] active:scale-95 cursor-pointer w-full sm:w-auto"
                 >
                   <span className="material-symbols-outlined text-[20px]">restaurant_menu</span>
-                  <span>Lihat Menu & Harga</span>
+                  <span>Lihat Menu & Porsi</span>
                 </button>
 
                 <a
-                  href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe%20Karawang,%20saya%20ingin%20memesan%20porsi%20hangat%20hari%20ini"
+                  href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Sangtau eRTe Karawang, saya ingin memesan porsi hangat hari ini')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#007735] text-white rounded-xl text-sm sm:text-base font-bold hover:bg-[#005c27] transition-all shadow-[0_8px_20px_rgba(0,119,53,0.22)] active:scale-95 w-full sm:w-auto"
@@ -254,16 +254,16 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
                 <span className="material-symbols-outlined text-[30px]">savings</span>
               </div>
               <span className="text-xs text-[#96220e] font-bold uppercase tracking-wider mb-1">
-                Harga Merakyat
+                Porsi Merakyat & Fleksibel
               </span>
               <h3 className="font-['Epilogue'] text-lg font-bold text-[#1e1b19] mb-2">
-                Porsi Kenyang Cuma Rp 15.000
+                Pilihan Porsi Mulai Rp 13.000
               </h3>
               <p className="text-sm text-[#59413c] leading-relaxed flex-grow">
-                Komitmen kami agar semua kalangan—pekerja pabrik kawasan industri, anak sekolah, mahasiswa Unsika, hingga lansia—bisa menikmati santapan bergizi yang mengenyangkan.
+                Tersedia Porsi Setengah (Rp 13k) untuk santap ringan, Porsi Normal (Rp 15k), dan Porsi Jumbo (Rp 18k). Menu makanan lainnya serba Rp 15.000 agar semua kalangan dapat menikmati hidangan lezat berkhasiat.
               </p>
               <div className="mt-4 pt-3 flex items-center gap-1.5 text-[#904d00] text-xs font-bold">
-                <span>Porsi mantap & terjangkau</span>
+                <span>Setengah 13k • Normal 15k • Jumbo 18k</span>
                 <span className="material-symbols-outlined text-[16px]">thumb_up</span>
               </div>
             </div>
@@ -320,7 +320,7 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 right-3 px-3 py-1 rounded-md bg-[#fe932c] text-[#663500] font-extrabold text-sm shadow-md">
-                  Rp 15.000
+                  13k - 18k
                 </div>
                 <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[#1e1b19] text-xs font-bold flex items-center gap-1 shadow-sm">
                   <span className="material-symbols-outlined text-[16px] text-[#904d00]">star</span>
@@ -333,12 +333,12 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
                   <span className="text-xs font-bold text-[#005c27] bg-[#95f8a7]/40 px-2 py-0.5 rounded">Tersedia</span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#59413c] leading-relaxed flex-grow mb-4">
-                  Sajian nasi putih hangat berpadu tahu sutra empuk, siraman bumbu kacang gurih legit, kucuran kecap manis khas, dan taburan melimpah bawang goreng renyah.
+                  Sajian nasi hangat pulen berpadu tahu Cina khusus tanpa pengawet, siraman bumbu kacang gurih legit, kucuran kecap manis khas, dan taburan bawang goreng renyah. (Porsi Setengah 13k, Normal 15k, Jumbo 18k).
                 </p>
                 <div className="flex items-center justify-between pt-2 border-t border-[#e9e1dd]">
-                  <span className="text-xs text-[#8d716b]">Nasi + Tahu + Bumbu</span>
+                  <span className="text-xs text-[#8d716b]">Nasi + Tahu Cina + Bumbu</span>
                   <a
-                    href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe,%20saya%20pesan%20Sangtau%20Spesial%20Rp15.000"
+                    href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Sangtau eRTe, saya mau pesan Sangtau Spesial')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 px-4 py-1.5 bg-[#96220e] text-white rounded-lg text-xs font-bold hover:bg-[#b83a24] transition-colors"
@@ -372,12 +372,12 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
                   <span className="text-xs font-bold text-[#005c27] bg-[#95f8a7]/40 px-2 py-0.5 rounded">Tersedia</span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#59413c] leading-relaxed flex-grow mb-4">
-                  Kupat kenyal lembut dipotong pas suap, disandingkan tahu sutra goreng dadakan, diguyur bumbu kacang rempah kental dan kucuran kecap istimewa.
+                  Kupat kenyal lembut dipotong pas suap, disandingkan tahu Cina sutra goreng dadakan, diguyur bumbu kacang rempah kental dan kucuran kecap istimewa.
                 </p>
                 <div className="flex items-center justify-between pt-2 border-t border-[#e9e1dd]">
-                  <span className="text-xs text-[#8d716b]">Kupat + Tahu + Bumbu</span>
+                  <span className="text-xs text-[#8d716b]">Kupat + Tahu Cina + Bumbu</span>
                   <a
-                    href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe,%20saya%20pesan%20Kupat%20Tahu%20Bumbu%20Rp15.000"
+                    href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Sangtau eRTe, saya mau pesan Kupat Tahu Bumbu Rp15.000')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 px-4 py-1.5 bg-[#96220e] text-white rounded-lg text-xs font-bold hover:bg-[#b83a24] transition-colors"
@@ -411,12 +411,12 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
                   <span className="text-xs font-bold text-[#005c27] bg-[#95f8a7]/40 px-2 py-0.5 rounded">Tersedia</span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#59413c] leading-relaxed flex-grow mb-4">
-                  Tahu putih pilihan digoreng langsung di minyak panas bersih. Kulit luar gurih dengan tekstur dalam super lembut, siap disantap hangat bersama bumbu legit.
+                  Tahu Cina segar tanpa pengawet digoreng langsung di minyak panas bersih. Kulit luar gurih dengan tekstur dalam super lembut, siap disantap hangat bersama bumbu legit.
                 </p>
                 <div className="flex items-center justify-between pt-2 border-t border-[#e9e1dd]">
                   <span className="text-xs text-[#8d716b]">Tahu Fresh di Wajan</span>
                   <a
-                    href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe,%20saya%20pesan%20Tahu%20Bumbu%20Dadakan%20Rp15.000"
+                    href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Sangtau eRTe, saya mau pesan Tahu Bumbu Dadakan Rp15.000')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 px-4 py-1.5 bg-[#96220e] text-white rounded-lg text-xs font-bold hover:bg-[#b83a24] transition-colors"
@@ -652,7 +652,7 @@ export default function BerandaSection({ onNavigateMenu, onNavigateCerita, onNav
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   <a
-                    href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe%20Karawang,%20saya%20mau%20pesan%20antar%20sekarang"
+                    href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Sangtau eRTe Karawang, saya mau pesan antar sekarang')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#007735] text-white rounded-xl text-sm font-bold hover:bg-[#005c27] transition-transform active:scale-95 shadow-md"

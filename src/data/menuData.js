@@ -1,14 +1,62 @@
+export const CONTACT_INFO = {
+  lapak: {
+    label: "Lapak Sangtau eRTe",
+    phone: "0851-1715-7206",
+    phoneRaw: "085117157206",
+    waLink: "https://wa.me/6285117157206",
+    role: "Layanan Pemesanan & Info Kedai",
+    description: "Pemesanan harian, makan di tempat, bungkus (takeaway), & konfirmasi operasional kedai."
+  },
+  owner: {
+    label: "Bapak Asep",
+    phone: "0815-7460-8979",
+    phoneRaw: "081574608979",
+    waLink: "https://wa.me/6281574608979",
+    role: "Pemilik & Pengelola Kedai",
+    description: "Pemesanan partai besar, katering kantor, syukuran, kerja sama, & kemitraan UMKM."
+  }
+};
+
 export const MENU_ITEMS = [
   {
-    id: "item-1",
-    name: "Sangtau \"eRTe\" Spesial (Nasi Tahu Bumbu)",
+    id: "item-1-normal",
+    name: "Sangtau \"eRTe\" Porsi Normal (Nasi Tahu Bumbu)",
     category: "utama",
     price: 15000,
     priceFormatted: "Rp 15.000",
+    portionTag: "Porsi Standar",
     badge: "Ikon Legendaris Sejak 1997",
     badgeType: "secondary",
     halal: true,
-    description: "Sajian nasi putih hangat pulen berpadu tahu sutra lembut, disiram bumbu kacang gurih kental beraroma rempah khas Sangtau eRTe, kecap manis legit, dan taburan melimpah bawang goreng wangi renyah.",
+    description: "Sajian nasi putih pulen hangat berpadu tahu Cina khusus super lembut tanpa pengawet, disiram bumbu kacang gurih kental beraroma rempah khas, kecap manis legit, dan taburan melimpah bawang goreng wangi renyah.",
+    spicyNote: "Pilihan Sambal: Level 0 s.d 3",
+    image: "./image/sangtau-sepiring.png"
+  },
+  {
+    id: "item-1-jumbo",
+    name: "Sangtau \"eRTe\" Porsi Jumbo (Ekstra Puas)",
+    category: "utama",
+    price: 18000,
+    priceFormatted: "Rp 18.000",
+    portionTag: "Porsi Jumbo",
+    badge: "Kenyang Maksimal",
+    badgeType: "secondary",
+    halal: true,
+    description: "Porsi ekstra mantap bagi Anda yang menginginkan santap siang lebih kenyang. Takaran nasi lebih banyak, potongan tahu Cina lembut ekstra melimpah, dan guyuran bumbu kacang gurih legit yang royal.",
+    spicyNote: "Pilihan Sambal: Level 0 s.d 3",
+    image: "./image/sangtau-sepiring.png"
+  },
+  {
+    id: "item-1-setengah",
+    name: "Sangtau \"eRTe\" Porsi Setengah (Santap Ringan)",
+    category: "utama",
+    price: 13000,
+    priceFormatted: "Rp 13.000",
+    portionTag: "Porsi Hemat",
+    badge: "Porsi Ringan & Pas",
+    badgeType: "tertiary",
+    halal: true,
+    description: "Porsi hemat pas untuk sarapan atau santap ringan tanpa kekenyangan berlebih. Tetap menyajikan kenikmatan tahu Cina khusus segar dan bumbu kacang warisan otentik sejak 1997.",
     spicyNote: "Pilihan Sambal: Level 0 s.d 3",
     image: "./image/sangtau-sepiring.png"
   },
@@ -18,10 +66,11 @@ export const MENU_ITEMS = [
     category: "utama",
     price: 15000,
     priceFormatted: "Rp 15.000",
+    portionTag: "Menu Utama",
     badge: "Favorit Warga Nagasari",
     badgeType: "secondary",
     halal: true,
-    description: "Kupat kenyal lembut dipotong pas suap, dipadukan tahu goreng dadakan panas, disiram bumbu kacang rempah kental dan kucuran kecap manis khas racikan rahasia sejak 1997.",
+    description: "Kupat kenyal lembut dipotong pas suap, disandingkan tahu Cina goreng dadakan panas tanpa pengawet, disiram bumbu kacang rempah kental dan kucuran kecap manis khas racikan rahasia sejak 1997.",
     spicyNote: "Bisa pesan tidak pedas / ekstra rawit",
     image: "./image/tuang-kecap-bumbu.png"
   },
@@ -31,10 +80,11 @@ export const MENU_ITEMS = [
     category: "utama",
     price: 15000,
     priceFormatted: "Rp 15.000",
-    badge: "Tahu Goreng Segar",
+    portionTag: "Menu Utama",
+    badge: "Tahu Cina Goreng Segar",
     badgeType: "tertiary",
     halal: true,
-    description: "Tahu putih berkualitas tinggi yang digoreng dadakan langsung di wajan panas. Kulit luar gurih renyah dengan bagian dalam super lembut menyerap bumbu kacang legit.",
+    description: "Tahu Cina kualitas tinggi pesanan khusus yang digoreng dadakan langsung di wajan panas. Kulit luar gurih renyah dengan bagian dalam super lembut alami yang meresap sempurna bumbu kacang legit.",
     spicyNote: "Digoreng segar dadakan saat dipesan",
     image: "./image/tahu-goreng-wajan.png"
   },
@@ -48,7 +98,7 @@ export const MENU_ITEMS = [
     badgeType: "secondary",
     subBadge: "Lauk Komplit",
     halal: true,
-    description: "Porsi istimewa Sangtau eRTe dilengkapi telur asin masir gurih berminyak alami atau bakso kenyal, tahu sutra ekstra, dan taburan bawang goreng Brebes yang melimpah.",
+    description: "Porsi istimewa Sangtau eRTe dilengkapi telur asin masir gurih berminyak alami atau bakso kenyal, tahu Cina ekstra, dan taburan bawang goreng Brebes yang melimpah ruah.",
     spicyNote: "Termasuk telur asin masir & kerupuk",
     image: "./image/tabur-bawang-goreng.png"
   },
@@ -67,14 +117,14 @@ export const MENU_ITEMS = [
   },
   {
     id: "item-6",
-    name: "Es Teh Manis Melati & Es Jeruk Segar",
+    name: "Teh Tawar Hangat Khas Kedai",
     category: "minuman",
-    price: 5000,
-    priceFormatted: "Rp 5.000",
-    badge: "Penawar Dahaga",
+    price: 2000,
+    priceFormatted: "Rp 2.000",
+    badge: "Penawar Dahaga Alami",
     badgeType: "tertiary",
-    description: "Segelas es teh wangi bunga melati alami atau perasan jeruk murni segar dingin yang menyegarkan tenggorokan setelah menyantap Sangtau hangat berlumur bumbu rempah.",
-    spicyNote: "Bisa pilih Dingin atau Hangat",
+    description: "Seduhan teh tawar hangat tradisional dengan aroma harum daun teh alami. Teman bersantap paling pas dan netral untuk membersihkan langit-langit mulut sehabis menikmati gurih legitnya kuah bumbu kacang Sangtau.",
+    spicyNote: "Disajikan hangat mengepul segar",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC-IvDSb9VmQfpJXcwMQDc-R9FchEXGIvtfUh8MWKWALHTXsxY6_VP6elWVGfFtFWkFVsLRetrtpqLDZF8CvoYVVeNHYQ25aKXrsGHVNNTL4O6-Vl1SPSXz8yTdPxmZUTVK4wiEo5LzsC4P5HxiZBgsU711Xp1L9cL4wach1k9ApNlzQGLqxAPdt-xnNCvWLIlpp9wb96vPR32YaF-Ra76yBVjAPP_5qr9mGMrGjmCfFBDTzPxgaVpubw"
   },
   {
@@ -87,7 +137,7 @@ export const MENU_ITEMS = [
     badgeType: "secondary",
     subBadge: "20 Porsi Komplit",
     halal: true,
-    description: "Paket konsumsi untuk rapat instansi, gathering pabrik, atau arisan keluarga. Bumbu kacang, tahu goreng dadakan, kupat/nasi, dan kerupuk dipisah rapi dalam kemasan food-grade higienis.",
+    description: "Paket konsumsi untuk rapat instansi, gathering pabrik, atau arisan keluarga. Bumbu kacang, tahu goreng dadakan segar, kupat/nasi, dan kerupuk dipisah rapi dalam kemasan food-grade higienis.",
     spicyNote: "Sambal dan bumbu dipisah rapi",
     image: "./image/kedai-tampak-depan.png"
   }
@@ -97,7 +147,7 @@ export const AUTHENTIC_GALLERY = [
   {
     id: "gal-1",
     title: "Sepiring Sangtau \"eRTe\"",
-    caption: "Tahu sutra lembut berpadu bumbu kacang legit, kucuran kecap istimewa, dan taburan bawang goreng gurih.",
+    caption: "Tahu Cina lembut berpadu bumbu kacang legit, kucuran kecap istimewa, dan taburan bawang goreng gurih.",
     image: "./image/sangtau-sepiring.png",
     tag: "Menu Utama"
   },
@@ -110,8 +160,8 @@ export const AUTHENTIC_GALLERY = [
   },
   {
     id: "gal-3",
-    title: "Tahu Putih Goreng Dadakan",
-    caption: "Tahu putih segar dipotong dadu besar dan digoreng di wajan panas saat pesanan dibuat.",
+    title: "Tahu Cina Khusus Digoreng Dadakan",
+    caption: "Tahu Cina segar tanpa pengawet dipotong dadu besar dan digoreng di wajan panas saat pesanan dibuat.",
     image: "./image/tahu-goreng-wajan.png",
     tag: "Fresh di Wajan"
   },
@@ -148,7 +198,7 @@ export const AUTHENTIC_GALLERY = [
 export const TESTIMONIALS = [
   {
     id: "rev-1",
-    quote: "Dari zaman saya masih SMP di dekat alun-alun tahun 2004 sampai sekarang sudah punya dua anak, rasa bumbu kacang dan tahu empuknya persis sama! Harganya Rp 15 ribu tetap bersahabat sekali.",
+    quote: "Dari zaman saya masih SMP di dekat alun-alun tahun 2004 sampai sekarang sudah punya dua anak, rasa bumbu kacang dan tahu empuknya persis sama! Porsinya pas dan harganya tetap bersahabat sekali.",
     author: "Bambang S.",
     role: "Warga Asli Nagasari, Karawang Barat",
     tag: "Langganan 20 Tahun",
@@ -192,10 +242,10 @@ export const TESTIMONIALS = [
   },
   {
     id: "rev-5",
-    quote: "Porsi Sangtau Komplit Rp 22k itu penyelamat anak kos Unsika! Tahu sutranya lembut, telurnya empuk meresap bumbu kacang, ditambah kerupuk renyah. Sering pesan ramai-ramai bareng teman sekelas.",
+    quote: "Tahunya beda banget sama tahu tukang sayur, beneran lembut dan gurih alami tanpa bau obat! Kadang pesan porsi jumbo 18k kalau lapar banget, atau setengah 13k kalau buat sarapan santai.",
     author: "Dimas Prasetyo",
     role: "Mahasiswa Universitas Singaperbangsa (Unsika)",
-    tag: "Porsi Komplit Juara",
+    tag: "Porsi Jumbo & Setengah Juara",
     initials: "DP",
     rating: 5,
     date: "14 Sep 2026",
@@ -203,7 +253,7 @@ export const TESTIMONIALS = [
   },
   {
     id: "rev-6",
-    quote: "Kemarin pesan 35 porsi untuk syukuran serah terima shift di pabrik. Dibungkus rapi, bumbu dan tahu dipisah pakai wadah tahan panas, sampai pabrik masih hangat dan sangat sedap!",
+    quote: "Kemarin pesan 35 porsi untuk syukuran serah terima shift di pabrik ke nomor Pak Asep. Dibungkus rapi, bumbu dan tahu dipisah wadah tahan panas, sampai pabrik masih hangat dan sangat sedap!",
     author: "Hendra Gunawan",
     role: "Mandor Logistik Kawasan KIM Karawang",
     tag: "Pesanan Katering Kantor",
@@ -214,7 +264,7 @@ export const TESTIMONIALS = [
   },
   {
     id: "rev-7",
-    quote: "Sebagai tenaga medis, saya apresiasi kebersihan kedai dan bahan segarnya. Tahu putihnya wangi alami tanpa pengawet asam, bawang goreng harum, bumbu kacangnya gurih mantap di lidah.",
+    quote: "Sebagai tenaga medis, saya apresiasi kebersihan kedai dan penggunaan tahu Cina tanpa pengawet. Stoknya selalu baru tiap hari jadi tidak pernah asam, sangat higienis dan sehat untuk dikonsumsi.",
     author: "dr. Annisa Putri",
     role: "Dokter Puskesmas Karawang Barat",
     tag: "Pilihan Higienis & Sehat",
@@ -225,7 +275,7 @@ export const TESTIMONIALS = [
   },
   {
     id: "rev-8",
-    quote: "Habis narik keliling kota, singgah sebentar makan sepiring Sangtau eRTe hangat plus es teh manis melati rasanya nikmat tiada dua. Harganya pas di kantong rakyat kecil.",
+    quote: "Habis narik keliling kota, singgah sebentar makan sepiring Sangtau eRTe hangat plus segelas teh tawar hangat rasanya nikmat tiada dua. Harganya pas di kantong rakyat kecil.",
     author: "Pak Ade Ruslan",
     role: "Komunitas Transportasi Karawang",
     tag: "Favorit Harian",
@@ -251,12 +301,12 @@ export const TIMELINE_EVENTS = [
   {
     year: "2003",
     era: "Konsistensi Rasa",
-    title: "Pewarisan Resep Generasi Kedua",
-    description: "Dapur warisan diteruskan dengan menjaga teguh takaran bumbu kacang sangrai, kecap pilihan, dan tahu sutra lembut. Tanpa bahan pengawet kimia, mempertahankan cita rasa asli seperti awal berdiri.",
-    highlight: "Takaran Resep Terjaga 100%",
-    badge: "Kemandirian Rasa",
+    title: "Tahu Cina Khusus & Pewarisan Resep Generasi Kedua",
+    description: "Dapur warisan diteruskan dengan menetapkan standar bahan baku utama: menggunakan Tahu Cina pesanan khusus (request) langsung tanpa bahan pengawet kimia. Karena murni tanpa pengawet, stok tahu selalu diganti baru setiap hari demi menjaga mutu rasa asli.",
+    highlight: "Tahu Cina Tanpa Pengawet",
+    badge: "Standar Kesegaran",
     icon: "psychology",
-    stats: "Resep Murni Tanpa Kimia",
+    stats: "Stok Segar Ganti Tiap Hari",
     image: "./image/tahu-goreng-wajan.png"
   },
   {
@@ -296,11 +346,11 @@ export const TIMELINE_EVENTS = [
     year: "2024 - Sekarang",
     era: "Era Digitalisasi UMKM",
     title: "Integrasi Layanan Digital & QRIS Bank BJB",
-    description: "Mengadopsi pembayaran digital QRIS Bank BJB, pemesanan cepat terintegrasi WhatsApp, dan kalkulasi pesanan transparan untuk memudahkan seluruh warga Karawang.",
-    highlight: "Pembayaran QRIS & Pesan Kilat",
+    description: "Mengadopsi pembayaran digital QRIS Bank BJB, pemesanan kilat dua kanal (Lapak Sangtau eRTe & kontak Bapak Asep via WhatsApp), serta simulator pesanan interaktif untuk seluruh warga Karawang.",
+    highlight: "Dua Nomor Resmi & QRIS",
     badge: "Transformasi Digital",
     icon: "devices",
-    stats: "Kemudahan Akses Warga",
+    stats: "Pemesanan Praktis & Cepat",
     image: "./image/tuang-kecap-bumbu.png"
   }
 ];
@@ -316,27 +366,31 @@ export const EXTRA_TOPPINGS = [
 
 export const FAQ_LIST = [
   {
+    q: "Apa perbedaan tahu di Sangtau \"eRTe\" dengan tahu yang biasa dijual di tukang sayur?",
+    a: "Tahu yang kami gunakan adalah Tahu Cina pilihan berkualitas tinggi yang dipesan khusus (custom request) langsung dari pengrajin tanpa sedikit pun menggunakan bahan pengawet kimia. Berbeda dari tahu pasar yang diawetkan, tahu kami memiliki tekstur sangat lembut (sutra), gurih alami kedelai, dan tidak berbau asam. Karena tanpa pengawet, tahu ini lebih cepat basi jika disimpan lama, sehingga komitmen kami adalah selalu mengganti stok tahu baru setiap hari dan tidak pernah menyimpan sisa tahu kemarin."
+  },
+  {
+    q: "Berapa saja pilihan ukuran porsi dan harga di Sangtau \"eRTe\"?",
+    a: "Kami menyediakan 3 pilihan ukuran porsi Sangtau sesuai selera makan Anda: Porsi Setengah seharga Rp 13.000 (pas untuk santap ringan), Porsi Normal seharga Rp 15.000 (standar mengenyangkan), dan Porsi Jumbo seharga Rp 18.000 (ekstra puas). Untuk menu makanan utama lainnya seperti Kupat Tahu Bumbu dan Tahu Bumbu Dadakan, semuanya seharga Rp 15.000 per porsi."
+  },
+  {
+    q: "Apakah ada menu minuman es di kedai?",
+    a: "Di kedai kami tidak menyediakan menu aneka es. Kami menyajikan Teh Tawar Hangat khas kedai tradisional (Rp 2.000) yang diseduh hangat segar, penawar dahaga paling ideal dan netral sehabis menikmati gurihnya kuah bumbu kacang rempah."
+  },
+  {
+    q: "Berapa nomor telepon / WhatsApp resmi yang bisa dihubungi?",
+    a: "Kedai kami memiliki 2 kontak resmi: (1) Lapak Sangtau eRTe di 0851-1715-7206 untuk pesanan harian, takeaway, pesan antar, dan informasi operasional kedai; serta (2) Bapak Asep di 0815-7460-8979 untuk pesanan partai besar (katering kantor, syukuran keluarga, arisan) dan kerja sama."
+  },
+  {
     q: "Apakah kedai Sangtau \"eRTe\" buka setiap hari?",
     a: "Ya! Kami buka setiap hari mulai pukul 08.00 hingga 21.00 WIB tanpa libur, termasuk hari Sabtu, Minggu, dan hari libur nasional. Khusus hari Jumat, pelayanan istirahat sejenak pukul 11.30 - 12.45 WIB untuk ibadah Shalat Jumat."
   },
   {
-    q: "Bagaimana cara memesan jika ingin dibungkus atau pesan antar (delivery)?",
-    a: "Anda dapat menggunakan Simulator Pesanan di halaman Lokasi & Kontak untuk memilih porsi, level pedas, dan lauk tambahan. Setelah formulir dikirim, sistem akan otomatis membuka WhatsApp resmi kedai dengan pesan yang sudah terformat rapi. Anda juga dapat memesan melalui kurir ojol rekanan."
-  },
-  {
     q: "Apakah sudah bersertifikasi Halal?",
-    a: "Alhamdulillah Sangtau \"eRTe\" sudah resmi bersertifikat Halal Indonesia dengan nomor sertifikasi resmi ID 32110003079180623. Seluruh bahan, mulai dari tahu, bumbu kacang, kecap, telur asin, hingga minyak goreng dijamin 100% halal dan thoyyib."
+    a: "Alhamdulillah Sangtau \"eRTe\" sudah resmi bersertifikat Halal Indonesia dengan nomor sertifikasi resmi ID 32110003079180623. Seluruh bahan dijamin 100% halal dan thoyyib."
   },
   {
     q: "Bisa minta kuah bumbu kacang dan kecap dipisah untuk perjalanan jauh?",
     a: "Tentu saja! Semua pesanan bungkus/takeaway dapat dipisah bumbunya ke dalam wadah higienis food-grade agar tahu tetap segar dan tidak benyek saat Anda bawa pulang ke rumah atau kantor."
-  },
-  {
-    q: "Bagaimana ketentuan pemesanan porsi besar (katering rapat/syukuran)?",
-    a: "Untuk pemesanan rombongan di atas 20 porsi (acara kantor, syukuran keluarga, arisan), kami menyarankan konfirmasi H-1 melalui WhatsApp agar tahu segar dan bumbu kacang dapat disiapkan langsung dari penggorengan pertama dalam kondisi paling hangat dan gurih."
-  },
-  {
-    q: "Di mana lokasi parkir kendaraan roda empat (mobil)?",
-    a: "Kedai kami di Blok Yanten No. 2 menyediakan bahu jalan beraspal lebar yang nyaman untuk parkir mobil dan motor santai dengan panduan juru parkir kedai, hanya 5 menit berkendara dari Stasiun Karawang."
   }
 ];

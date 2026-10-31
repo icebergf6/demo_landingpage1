@@ -1,26 +1,18 @@
 import React, { useState, useMemo } from 'react';
-import { MENU_ITEMS } from '../data/menuData';
+import { MENU_ITEMS, CONTACT_INFO } from '../data/menuData';
 
 export default function MenuSection() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMenuItem, setSelectedMenuItem] = useState(null); // for detail modal
 
-  const [quantities, setQuantities] = useState({
-    'item-1': 0,
-    'item-2': 0,
-    'item-3': 0,
-    'item-4': 0,
-    'item-5': 0,
-    'item-6': 0,
-    'item-7': 0,
-  });
+  const [quantities, setQuantities] = useState({});
 
   const categories = [
     { id: 'all', label: 'Semua Menu' },
     { id: 'utama', label: 'Menu Utama' },
     { id: 'spesial', label: 'Varian Spesial & Lauk' },
-    { id: 'minuman', label: 'Minuman Segar' },
+    { id: 'minuman', label: 'Minuman Tradisional' },
     { id: 'paket', label: 'Paket Katering' },
   ];
 
@@ -63,7 +55,7 @@ export default function MenuSection() {
         qty * item.price
       ).toLocaleString('id-ID')}\nMohon info ketersediaan dan prosesnya. Terima kasih!`
     );
-    window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    window.open(`https://wa.me/${CONTACT_INFO.lapak.phoneRaw}?text=${text}`, '_blank');
   };
 
   const handleOrderAllSelected = () => {
@@ -83,7 +75,7 @@ export default function MenuSection() {
         'id-ID'
       )}\nMohon diproses untuk pesanan saya. Terima kasih!`
     );
-    window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    window.open(`https://wa.me/${CONTACT_INFO.lapak.phoneRaw}?text=${text}`, '_blank');
   };
 
   return (
@@ -112,8 +104,8 @@ export default function MenuSection() {
 
             <div className="inline-flex items-center gap-2 p-3 rounded-xl bg-[#eee7e3] text-[#1e1b19] shadow-xs self-start">
               <span className="material-symbols-outlined text-[#96220e] text-[22px]">savings</span>
-              <span className="font-bold text-sm">Harga Merakyat Rp 15.000 / Porsi</span>
-              <span className="text-xs text-[#59413c] hidden sm:inline">• Porsi Pas & Mengenyangkan</span>
+              <span className="font-bold text-sm">Porsi Mulai Rp 13.000 s/d Rp 18.000</span>
+              <span className="text-xs text-[#59413c] hidden sm:inline">• Menu Lainnya Serba Rp 15.000</span>
             </div>
           </div>
 
@@ -386,16 +378,25 @@ export default function MenuSection() {
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
-                href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe%20Karawang,%20saya%20ingin%20berkonsultasi%20mengenai%20pesanan%20katering%20porsi%20besar"
+                href={`${CONTACT_INFO.owner.waLink}?text=${encodeURIComponent('Halo Bapak Asep, saya ingin berkonsultasi mengenai pesanan katering porsi besar Sangtau eRTe')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#007735] text-white text-sm font-bold hover:bg-[#005c27] shadow-md transition-all active:scale-95"
               >
                 <span className="material-symbols-outlined text-[20px]">chat</span>
-                <span>Konsultasi Katering via WhatsApp</span>
+                <span>Hubungi Bapak Asep (0815-7460-8979)</span>
               </a>
-              <span className="text-xs text-[#8d716b]">
-                *Disarankan konfirmasi H-1 untuk pesanan di atas 20 porsi
+              <a
+                href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Lapak Sangtau eRTe, saya ingin memesan menu kedai')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#1e1b19] border border-[#e0bfb9]/60 text-sm font-bold hover:bg-[#f4ece8] transition-all active:scale-95"
+              >
+                <span className="material-symbols-outlined text-[20px] text-[#96220e]">storefront</span>
+                <span>Hubungi Lapak (0851-1715-7206)</span>
+              </a>
+              <span className="text-xs text-[#8d716b] w-full">
+                *Disarankan konfirmasi H-1 untuk pesanan partai besar di atas 20 porsi
               </span>
             </div>
           </div>

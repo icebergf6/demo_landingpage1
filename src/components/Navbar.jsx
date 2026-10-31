@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CONTACT_INFO } from '../data/menuData';
 
 export default function Navbar({ activeTab, setActiveTab }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -131,7 +132,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
             </div>
 
             <a
-              href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe%20Karawang,%20saya%20ingin%20memesan%20porsi%20hangat%20hari%20ini"
+              href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Sangtau eRTe Karawang, saya ingin memesan porsi hangat hari ini')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3.5 sm:px-4 py-2 bg-[#007735] text-white rounded-lg text-xs sm:text-sm font-bold hover:bg-[#005c27] transition-all shadow-[0_4px_14px_rgba(0,119,53,0.25)] active:scale-95 whitespace-nowrap shrink-0"
@@ -267,31 +268,37 @@ export default function Navbar({ activeTab, setActiveTab }) {
           {/* Sidebar Bottom: Order via WhatsApp & Maps Shortcut */}
           <div className="p-4 border-t border-[#e9e1dd] bg-[#faf2ee] flex flex-col gap-2">
             <a
-              href="https://wa.me/6281234567890?text=Halo%20Sangtau%20eRTe%20Karawang,%20saya%20ingin%20memesan%20porsi%20hangat%20hari%20ini"
+              href={`${CONTACT_INFO.lapak.waLink}?text=${encodeURIComponent('Halo Lapak Sangtau eRTe, saya ingin memesan porsi hangat hari ini')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 px-4 rounded-xl bg-[#007735] text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#005c27] shadow-[0_4px_16px_rgba(0,119,53,0.3)] transition-all active:scale-95"
+              className="w-full py-3 px-4 rounded-xl bg-[#007735] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#005c27] shadow-[0_4px_16px_rgba(0,119,53,0.3)] transition-all active:scale-95"
             >
-              <span className="material-symbols-outlined text-[20px]">
-                chat
-              </span>
-              <span>Pesan via WhatsApp Sekarang</span>
+              <span className="material-symbols-outlined text-[19px]">chat</span>
+              <span>WA Lapak ({CONTACT_INFO.lapak.phone})</span>
+            </a>
+
+            <a
+              href={`${CONTACT_INFO.owner.waLink}?text=${encodeURIComponent('Halo Bapak Asep, saya ingin berkonsultasi mengenai pesanan Sangtau eRTe')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 px-4 rounded-xl bg-[#f4ece8] text-[#1e1b19] border border-[#e0bfb9]/60 text-xs font-bold flex items-center justify-center gap-2 hover:bg-[#eee7e3] transition-all active:scale-95"
+            >
+              <span className="material-symbols-outlined text-[18px] text-[#005c27]">person</span>
+              <span>Hubungi Pak Asep ({CONTACT_INFO.owner.phone})</span>
             </a>
 
             <a
               href="https://maps.google.com/?q=Blok+Yanten+No.2+Jl.+K.H.+Dewantara+Nagasari+Karawang+Barat"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-4 rounded-xl bg-white text-[#96220e] border border-[#e0bfb9]/60 text-xs font-bold flex items-center justify-center gap-2 hover:bg-[#ffdcc3] transition-all active:scale-95"
+              className="w-full py-2 px-4 rounded-xl bg-white text-[#96220e] border border-[#e0bfb9]/60 text-xs font-bold flex items-center justify-center gap-2 hover:bg-[#ffdcc3] transition-all active:scale-95"
             >
-              <span className="material-symbols-outlined text-[18px]">
-                directions
-              </span>
+              <span className="material-symbols-outlined text-[17px]">directions</span>
               <span>Petunjuk Rute Google Maps</span>
             </a>
 
             <div className="text-center text-[11px] text-[#8d716b] mt-1">
-              Kedai Pusat Nagasari • Rp 15.000 / Porsi
+              Kedai Pusat Nagasari • Porsi Mulai Rp 13.000
             </div>
           </div>
         </aside>

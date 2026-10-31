@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONTACT_INFO } from '../data/menuData';
 
 export default function Footer({ onNavigateTab }) {
   return (
@@ -14,7 +15,7 @@ export default function Footer({ onNavigateTab }) {
               </span>
             </div>
             <p className="text-xs sm:text-sm text-[#59413c] leading-relaxed">
-              Kuliner otentik legendaris khas Karawang yang senantiasa menjaga keaslian bumbu warisan sejak 1997. Cita rasa gurih legit, higienis, dan merakyat hanya Rp 15.000 per porsi.
+              Kuliner otentik legendaris khas Karawang dengan tahu Cina khusus tanpa pengawet yang selalu diganti segar setiap hari. Cita rasa gurih legit mulai Rp 13.000 s/d Rp 18.000 per porsi.
             </p>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <span className="px-3 py-1 rounded-md bg-[#ffdcc3] text-[#6e3900] text-xs font-bold">
@@ -37,34 +38,45 @@ export default function Footer({ onNavigateTab }) {
               Blok Yanten No. 2, Jl. K.H. Dewantara, Kel. Nagasari, Kec. Karawang Barat, Kab. Karawang, Jawa Barat 41312
             </p>
             <span className="text-xs text-[#8d716b]">
-              Patokan: Dekat kawasan pusat kota Karawang
+              Patokan: 5 menit dari Stasiun Karawang
             </span>
           </div>
 
-          {/* Hours */}
+          {/* Contacts & Hours */}
           <div className="flex flex-col gap-3">
             <span className="font-bold text-sm text-[#1e1b19] flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-[#005c27] text-[20px]">schedule</span>
-              Jam Operasional
+              <span className="material-symbols-outlined text-[#005c27] text-[20px]">contacts</span>
+              Kontak Resmi Kedai
             </span>
-            <p className="text-xs sm:text-sm text-[#59413c]">
-              <strong className="text-[#1e1b19]">Setiap Hari (Senin - Minggu)</strong>
-              <br />
-              08.00 - 21.00 WIB
-            </p>
-            <div className="pt-1">
-              <span className="text-xs text-[#59413c] block mb-1.5">Layanan Pesanan:</span>
-              <div className="flex flex-wrap gap-1.5">
-                <span className="px-2.5 py-1 rounded-full bg-[#f4ece8] text-[#1e1b19] text-[11px] font-semibold">
-                  Makan di Tempat
-                </span>
-                <span className="px-2.5 py-1 rounded-full bg-[#f4ece8] text-[#1e1b19] text-[11px] font-semibold">
-                  Bungkus / Takeaway
-                </span>
-                <span className="px-2.5 py-1 rounded-full bg-[#f4ece8] text-[#1e1b19] text-[11px] font-semibold">
-                  Pesan Antar WA
-                </span>
-              </div>
+            <div className="flex flex-col gap-2 text-xs sm:text-sm">
+              <a
+                href={CONTACT_INFO.lapak.waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-white border border-[#e0bfb9]/40 hover:border-[#96220e] transition-colors flex items-center justify-between"
+              >
+                <div className="flex flex-col">
+                  <span className="font-bold text-[#1e1b19]">{CONTACT_INFO.lapak.label}</span>
+                  <span className="text-[11px] text-[#59413c]">Pesanan: {CONTACT_INFO.lapak.phone}</span>
+                </div>
+                <span className="material-symbols-outlined text-[#007735] text-[18px]">chat</span>
+              </a>
+
+              <a
+                href={CONTACT_INFO.owner.waLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-xl bg-white border border-[#e0bfb9]/40 hover:border-[#005c27] transition-colors flex items-center justify-between"
+              >
+                <div className="flex flex-col">
+                  <span className="font-bold text-[#1e1b19]">{CONTACT_INFO.owner.label}</span>
+                  <span className="text-[11px] text-[#59413c]">Pengelola: {CONTACT_INFO.owner.phone}</span>
+                </div>
+                <span className="material-symbols-outlined text-[#007735] text-[18px]">chat</span>
+              </a>
+            </div>
+            <div className="text-[11px] text-[#59413c]">
+              <strong>Buka Setiap Hari:</strong> 08.00 - 21.00 WIB
             </div>
           </div>
 
@@ -75,15 +87,14 @@ export default function Footer({ onNavigateTab }) {
               Tautan & Kemitraan
             </span>
             <div className="flex flex-col gap-1.5 text-xs sm:text-sm">
-              <a
-                href="https://wa.me/6281234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#59413c] hover:text-[#96220e] transition-colors flex items-center gap-1.5"
+              <button
+                type="button"
+                onClick={() => onNavigateTab('menu')}
+                className="text-[#59413c] hover:text-[#96220e] transition-colors flex items-center gap-1.5 text-left cursor-pointer"
               >
-                <span className="material-symbols-outlined text-[18px]">storefront</span>
-                Katalog Menu WhatsApp
-              </a>
+                <span className="material-symbols-outlined text-[18px]">restaurant_menu</span>
+                Katalog Menu & Porsi
+              </button>
               <a
                 href="https://maps.google.com/?q=Blok+Yanten+No.2+Jl.+K.H.+Dewantara+Nagasari+Karawang+Barat"
                 target="_blank"
@@ -96,10 +107,10 @@ export default function Footer({ onNavigateTab }) {
               <button
                 type="button"
                 onClick={() => onNavigateTab('cerita')}
-                className="text-[#59413c] hover:text-[#96220e] transition-colors flex items-center gap-1.5 text-left"
+                className="text-[#59413c] hover:text-[#96220e] transition-colors flex items-center gap-1.5 text-left cursor-pointer"
               >
                 <span className="material-symbols-outlined text-[18px]">photo_camera</span>
-                Galeri & Dokumentasi Sejarah
+                Galeri & Kisah Tahu Cina
               </button>
             </div>
 
@@ -117,12 +128,12 @@ export default function Footer({ onNavigateTab }) {
 
         {/* Bottom Line */}
         <div className="pt-6 border-t border-[#e0bfb9]/40 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-[#59413c]">
-          <p>© 2025 Sangtau Karawang • Kuliner Legendaris Karawang Sejak 1997. Seluruh Hak Cipta Dilindungi.</p>
+          <p>© 2026 Sangtau Karawang • Kuliner Legendaris Karawang Sejak 1997. Seluruh Hak Cipta Dilindungi.</p>
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => onNavigateTab('cerita')}
-              className="hover:text-[#96220e] transition-colors"
+              className="hover:text-[#96220e] transition-colors cursor-pointer"
             >
               Kisah Warisan
             </button>
@@ -130,13 +141,13 @@ export default function Footer({ onNavigateTab }) {
             <button
               type="button"
               onClick={() => onNavigateTab('lokasi')}
-              className="hover:text-[#96220e] transition-colors"
+              className="hover:text-[#96220e] transition-colors cursor-pointer"
             >
               Lokasi & Pesanan
             </button>
             <span>•</span>
             <a
-              href="https://wa.me/6281234567890"
+              href={CONTACT_INFO.lapak.waLink}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#96220e] transition-colors"

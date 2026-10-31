@@ -9,15 +9,15 @@ export default function CeritaSection({ onNavigateMenu }) {
       icon: 'verified',
       colorBg: 'bg-[#ffdcc3]',
       colorText: 'text-[#904d00]',
-      title: 'Otentisitas Tanpa Kompromi',
-      desc: 'Setiap takaran bumbu kacang dan kecap diracik teliti menggunakan rempah alami nusantara dan kacang sangrai pilihan tanpa bahan kimiawi atau pengawet buatan.',
+      title: 'Tahu Cina Khusus Tanpa Pengawet',
+      desc: 'Dipesan khusus (request) langsung tanpa bahan pengawet kimia. Lebih lembut dan stok diganti baru setiap hari agar kualitas rasa dan kesegarannya selalu terjaga.',
     },
     {
       icon: 'savings',
       colorBg: 'bg-[#ffdad3]',
       colorText: 'text-[#96220e]',
-      title: 'Keterjangkauan untuk Semua Warga',
-      desc: 'Menjaga harga tetap Rp 15.000 adalah komitmen moral kami agar semua kalangan masyarakat Karawang senantiasa dapat menikmati santap nikmat bernutrisi.',
+      title: 'Pilihan Porsi Fleksibel & Merakyat',
+      desc: 'Mulai Porsi Setengah (Rp 13k), Porsi Normal (Rp 15k), hingga Porsi Jumbo (Rp 18k). Komitmen kami agar semua kalangan masyarakat senantiasa dapat menikmati santap lezat bernutrisi.',
     },
     {
       icon: 'diversity_3',
@@ -73,11 +73,11 @@ export default function CeritaSection({ onNavigateMenu }) {
                 </span>
               </div>
               <div className="p-4 bg-white rounded-2xl shadow-xs border border-[#e0bfb9]/40 flex flex-col">
-                <span className="font-['Epilogue'] text-2xl sm:text-3xl font-extrabold text-[#904d00] leading-none">
-                  Rp 15k
+                <span className="font-['Epilogue'] text-xl sm:text-2xl font-extrabold text-[#904d00] leading-none">
+                  13k - 18k
                 </span>
                 <span className="text-xs text-[#59413c] mt-1 font-semibold">
-                  Harga Merakyat
+                  Pilihan Porsi
                 </span>
               </div>
               <div className="p-4 bg-white rounded-2xl shadow-xs border border-[#e0bfb9]/40 flex flex-col">
@@ -160,13 +160,33 @@ export default function CeritaSection({ onNavigateMenu }) {
               </h2>
               <div className="flex flex-col gap-3 text-sm sm:text-base text-[#59413c] leading-relaxed">
                 <p>
-                  Tahun 1997 menjadi tonggak awal kehadiran Sangtau "eRTe" di Karawang. Berawal dari kecintaan mendalam untuk merawat makanan khas lokal yang bersahaja, sepiring Sangtau lahir sebagai perpaduan harmonis antara kelembutan tahu putih pilihan, siraman bumbu kacang gurih legit, kucuran kecap manis khas, dan taburan bawang goreng renyah melimpah.
+                  Tahun 1997 menjadi tonggak awal kehadiran Sangtau "eRTe" di Karawang. Berawal dari kecintaan mendalam untuk merawat makanan khas lokal yang bersahaja, sepiring Sangtau lahir sebagai perpaduan harmonis antara kelembutan tahu Cina pilihan, siraman bumbu kacang gurih legit, kucuran kecap manis khas, dan taburan bawang goreng renyah melimpah.
                 </p>
                 <p>
                   Kabupaten Karawang telah bertransformasi pesat dari kota lumbung padi menjadi pusat industri modern terbesar di Asia Tenggara. Namun di balik gegap gempita modernisasi tersebut, dapur Sangtau "eRTe" tetap setia mempertahankan racikan tradisional, bumbu rempah asli nusantara, dan tata cara memasak tradisional tanpa sedikit pun menggunakan bahan pengawet buatan.
                 </p>
+
+                {/* Highlight Khusus Tahu Cina Tanpa Pengawet & Pergantian Stok */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-[#ffdcc3]/40 border border-[#fe932c]/50 flex flex-col gap-2.5 my-2">
+                  <div className="flex items-center gap-2 text-[#904d00]">
+                    <span className="material-symbols-outlined text-[22px]">eco</span>
+                    <h3 className="font-bold text-sm sm:text-base text-[#1e1b19]">
+                      Keistimewaan Bahan: Tahu Cina Khusus (Custom Request)
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#59413c] leading-relaxed">
+                    Tahu yang kami gunakan <strong>bukan tahu sembarangan</strong> seperti yang lazim dijumpai di pedagang sayur keliling atau pasar umum. Kami memesan langsung (*custom request*) <strong>Tahu Cina pilihan</strong> murni tanpa bahan pengawet kimiawi (bebas formalin/asam pengawet).
+                  </p>
+                  <div className="pt-2 border-t border-[#e0bfb9]/60 flex items-start gap-2 text-xs text-[#6e3900]">
+                    <span className="material-symbols-outlined text-[18px] text-[#96220e] shrink-0 mt-0.5">change_circle</span>
+                    <span>
+                      <strong>Daya Tahan & Pergantian Stok Harian:</strong> Karena diproduksi murni tanpa pengawet, teksturnya super lembut namun lebih cepat basi / tidak tahan lama. Oleh karena itu, <strong>stok tahu kedai selalu diganti baru setiap hari</strong>. Tahu yang tersisa tidak pernah disimpan untuk hari esok demi memastikan kualitas dan kesegaran 100% terjaga.
+                    </span>
+                  </div>
+                </div>
+
                 <p>
-                  Bagi kami, sepiring Sangtau bukan sekadar makanan pengganjal lapar harian, melainkan identitas kultural dan saksi bisu kehangatan persaudaraan warga Karawang dari masa ke masa.
+                  Bagi kami, sepiring Sangtau bukan sekadar makanan pengganjal lapar harian, melainkan identitas kultural, amanah kejujuran rasa, dan saksi bisu kehangatan persaudaraan warga Karawang dari masa ke masa.
                 </p>
               </div>
 

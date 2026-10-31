@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { EXTRA_TOPPINGS, FAQ_LIST } from '../data/menuData';
+import { EXTRA_TOPPINGS, FAQ_LIST, CONTACT_INFO } from '../data/menuData';
 
 export default function LokasiSection() {
   const [custName, setCustName] = useState('');
   const [custPhone, setCustPhone] = useState('');
+  const [portionSize, setPortionSize] = useState('normal'); // 'setengah' | 'normal' | 'jumbo'
   const [portionQty, setPortionQty] = useState(1);
+  const [includeTehTawar, setIncludeTehTawar] = useState(false);
+  const [targetContact, setTargetContact] = useState('lapak'); // 'lapak' | 'owner'
   const [spiceLevel, setSpiceLevel] = useState('Sedang');
   const [fulfillment, setFulfillment] = useState('Makan di Tempat (Dine-in)');
   const [selectedToppings, setSelectedToppings] = useState([]);
@@ -12,6 +15,7 @@ export default function LokasiSection() {
   const [orderSent, setOrderSent] = useState(false);
   const [copiedAddress, setCopiedAddress] = useState(false);
   const [copiedMessage, setCopiedMessage] = useState(false);
+  const [copiedContact, setCopiedContact] = useState('');
   const [expandedFaq, setExpandedFaq] = useState(0);
   const [mapTab, setMapTab] = useState('foto'); // 'foto' | 'peta'
 
@@ -26,23 +30,38 @@ export default function LokasiSection() {
     checkOpen();
   }, []);
 
+  const PORTION_CONFIG = {
+    setengah: { name: 'Porsi Setengah', price: 13000, desc: 'Santap ringan & pas' },
+    normal: { name: 'Porsi Normal', price: 15000, desc: 'Porsi standar favorit' },
+    jumbo: { name: 'Porsi Jumbo', price: 18000, desc: 'Ekstra puas & kenyang' },
+  };
+
   const applyPreset = (type) => {
     if (type === 'sendiri') {
+      setPortionSize('normal');
       setPortionQty(1);
       setSelectedToppings(['top-1']); // Telur Asin Masir
+      setIncludeTehTawar(true);
       setSpiceLevel('Sedang');
+      setTargetContact('lapak');
     } else if (type === 'berdua') {
+      setPortionSize('normal');
       setPortionQty(2);
       setSelectedToppings(['top-2', 'top-5']); // Bakwan + Kerupuk
+      setIncludeTehTawar(true);
       setSpiceLevel('Sedang');
+      setTargetContact('lapak');
     } else if (type === 'kantor') {
+      setPortionSize('jumbo');
       setPortionQty(5);
       setSelectedToppings(['top-1', 'top-2', 'top-4']);
+      setIncludeTehTawar(true);
       setSpiceLevel('Pedas Mantap');
+      setTargetContact('owner');
     }
   };
 
-  const basePricePerPortion = 15000;
+  const basePricePerPortion = PORTION_CONFIG[portionSize].price;
   const baseTotal = portionQty * basePricePerPortion;
 
   // Calculate toppings price
@@ -51,7 +70,8 @@ export default function LokasiSection() {
     return sum + (item ? item.price * portionQty : 0);
   }, 0);
 
-  const grandTotal = baseTotal + toppingsTotal;
+  const drinksTotal = includeTehTawar ? 2000 * portionQty : 0;
+  const grandTotal = baseTotal + toppingsTotal + drinksTotal;
 
   const handleAdjustPortion = (delta) => {
     setPortionQty((prev) => Math.max(1, prev + delta));
@@ -76,6 +96,12 @@ export default function LokasiSection() {
     setTimeout(() => setCopiedAddress(false), 2500);
   };
 
+  const handleCopyContact = (phone, label) => {
+    navigator.clipboard.writeText(phone);
+    setCopiedContact(label);
+    setTimeout(() => setCopiedContact(''), 2500);
+  };
+
   const generateWhatsAppMessage = () => {
     const formattedTotal = `Rp ${grandTotal.toLocaleString('id-ID')}`;
     const toppingsText =
@@ -94,14 +120,16 @@ export default function LokasiSection() {
       `----------------------------------------\n` +
       `👤 *Nama:* ${custName || '-'}\n` +
       `📞 *No. WhatsApp:* ${custPhone || '-'}\n` +
-      `🍲 *Menu:* Sangtau Khas Karawang\n` +
+      `🍲 *Menu:* Sangtau Khas Karawang (${PORTION_CONFIG[portionSize].name} @ Rp ${basePricePerPortion.toLocaleString('id-ID')})\n` +
       `📦 *Jumlah:* ${portionQty} porsi (Dasar: Rp ${baseTotal.toLocaleString('id-ID')})\n` +
       `🥚 *Topping Tambahan:* ${toppingsText}\n` +
+      `☕ *Minuman:* ${includeTehTawar ? `${portionQty}x Teh Tawar Hangat (Rp ${drinksTotal.toLocaleString('id-ID')})` : 'Tanpa Minuman'}\n` +
       `🌶️ *Level Sambal:* ${spiceLevel}\n` +
       `🛵 *Metode:* ${fulfillment}\n` +
       (notes ? `📝 *Catatan Khusus:* ${notes}\n` : '') +
       `----------------------------------------\n` +
       `💰 *Total Estimasi Biaya:* ${formattedTotal}\n\n` +
+      `Tujuan Konfirmasi: ${targetContact === 'owner' ? 'Bapak Asep (Pengelola)' : 'Lapak Sangtau eRTe'}\n` +
       `Mohon segera dikonfirmasi pesanan saya. Terima kasih banyak!`
     );
   };
@@ -119,7 +147,8 @@ export default function LokasiSection() {
     const encoded = encodeURIComponent(msg);
     setOrderSent(true);
     setTimeout(() => setOrderSent(false), 6000);
-    window.open(`https://wa.me/6281234567890?text=${encoded}`, '_blank');
+    const targetNumber = targetContact === 'owner' ? CONTACT_INFO.owner.phoneRaw : CONTACT_INFO.lapak.phoneRaw;
+    window.open(`https://wa.me/${targetNumber}?text=${encoded}`, '_blank');
   };
 
   return (
@@ -195,7 +224,7 @@ export default function LokasiSection() {
                     Simulator Pesanan Interaktif
                   </span>
                   <span className="px-3 py-1 rounded-full bg-[#ffdad3] text-[#96220e] text-xs font-extrabold">
-                    Mulai Rp 15.000 / Porsi
+                    Mulai Rp 13.000 / Porsi
                   </span>
                 </div>
                 <h2 className="font-['Epilogue'] text-xl sm:text-2xl font-bold text-[#1e1b19]">
@@ -286,15 +315,48 @@ export default function LokasiSection() {
                   </div>
                 </div>
 
+                {/* Portion Size Selection */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#59413c] flex items-center justify-between">
+                    <span>Pilihan Ukuran Porsi Sangtau</span>
+                    <span className="text-[#96220e] font-bold text-xs">
+                      {PORTION_CONFIG[portionSize].name} • Rp {basePricePerPortion.toLocaleString('id-ID')}
+                    </span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    {Object.entries(PORTION_CONFIG).map(([key, cfg]) => {
+                      const isSel = portionSize === key;
+                      return (
+                        <button
+                          key={key}
+                          type="button"
+                          onClick={() => setPortionSize(key)}
+                          className={`p-3 rounded-2xl border transition-all text-left flex flex-col gap-0.5 cursor-pointer ${
+                            isSel
+                              ? 'bg-[#ffdcc3] border-[#904d00] text-[#2f1500] shadow-xs'
+                              : 'bg-[#faf2ee] border-[#e0bfb9]/40 text-[#1e1b19] hover:bg-[#f4ece8]'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between w-full">
+                            <span className="text-xs font-extrabold">{cfg.name}</span>
+                            <span className="text-xs font-bold text-[#96220e]">Rp {cfg.price.toLocaleString('id-ID')}</span>
+                          </div>
+                          <span className="text-[11px] text-[#59413c]">{cfg.desc}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
                 {/* Portion Stepper & Quick Shortcuts */}
                 <div className="p-4 sm:p-5 bg-[#faf2ee] rounded-2xl border border-[#e0bfb9]/40 flex flex-col gap-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                       <span className="font-bold text-sm sm:text-base text-[#1e1b19] block">
-                        Jumlah Porsi Sangtau Hangat
+                        Jumlah Porsi {PORTION_CONFIG[portionSize].name}
                       </span>
                       <span className="text-xs text-[#59413c]">
-                        Harga dasar Rp 15.000 / porsi (mie, bihun, tahu sutra, kaldu rempah, tauge)
+                        Rp {basePricePerPortion.toLocaleString('id-ID')} / porsi (tahu Cina lembut tanpa pengawet & bumbu kacang)
                       </span>
                     </div>
 
@@ -427,6 +489,77 @@ export default function LokasiSection() {
                   </div>
                 </div>
 
+                {/* Drink Option: Teh Tawar Hangat */}
+                <div className="p-3.5 bg-[#faf2ee] rounded-2xl border border-[#e0bfb9]/40 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="material-symbols-outlined text-[#904d00] text-[22px]">local_cafe</span>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-[#1e1b19]">Tambah Teh Tawar Hangat</span>
+                      <span className="text-[11px] text-[#59413c]">
+                        Seduhan teh tawar harum khas kedai • Rp 2.000 / porsi
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIncludeTehTawar((prev) => !prev)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                      includeTehTawar
+                        ? 'bg-[#904d00] text-white shadow-xs'
+                        : 'bg-white text-[#59413c] border border-[#e0bfb9]/60 hover:bg-[#eee7e3]'
+                    }`}
+                  >
+                    <span className="material-symbols-outlined text-[16px]">
+                      {includeTehTawar ? 'check' : 'add'}
+                    </span>
+                    <span>{includeTehTawar ? 'Ditambahkan' : '+ Rp 2.000'}</span>
+                  </button>
+                </div>
+
+                {/* Target Contact Selector */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-xs font-bold uppercase tracking-wider text-[#59413c]">
+                    Kirim Konfirmasi Pesanan Ke:
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="targetContact"
+                        value="lapak"
+                        checked={targetContact === 'lapak'}
+                        onChange={() => setTargetContact('lapak')}
+                        className="sr-only peer"
+                      />
+                      <div className="p-3 rounded-2xl bg-[#faf2ee] border border-[#e0bfb9]/40 peer-checked:bg-[#ffdcc3] peer-checked:border-[#904d00] transition-all flex items-center gap-2.5">
+                        <span className="material-symbols-outlined text-[#96220e] text-[22px]">storefront</span>
+                        <div className="flex flex-col leading-tight">
+                          <span className="text-xs font-bold text-[#1e1b19]">Lapak Sangtau eRTe</span>
+                          <span className="text-[11px] text-[#59413c]">0851-1715-7206 (Pesanan Kedai)</span>
+                        </div>
+                      </div>
+                    </label>
+
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        name="targetContact"
+                        value="owner"
+                        checked={targetContact === 'owner'}
+                        onChange={() => setTargetContact('owner')}
+                        className="sr-only peer"
+                      />
+                      <div className="p-3 rounded-2xl bg-[#faf2ee] border border-[#e0bfb9]/40 peer-checked:bg-[#ffdcc3] peer-checked:border-[#904d00] transition-all flex items-center gap-2.5">
+                        <span className="material-symbols-outlined text-[#005c27] text-[22px]">person</span>
+                        <div className="flex flex-col leading-tight">
+                          <span className="text-xs font-bold text-[#1e1b19]">Bapak Asep (Pengelola)</span>
+                          <span className="text-[11px] text-[#59413c]">0815-7460-8979 (Partai/Katering)</span>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
                 {/* Fulfillment Method */}
                 <div className="flex flex-col gap-2">
                   <label className="text-xs sm:text-sm font-bold text-[#1e1b19]">
@@ -486,9 +619,16 @@ export default function LokasiSection() {
                   </div>
 
                   <div className="flex items-center justify-between text-[#1e1b19]">
-                    <span>{portionQty}x Sangtau Khas Karawang</span>
+                    <span>{portionQty}x Sangtau ({PORTION_CONFIG[portionSize].name})</span>
                     <span>Rp {baseTotal.toLocaleString('id-ID')}</span>
                   </div>
+
+                  {includeTehTawar && (
+                    <div className="flex items-center justify-between text-[#59413c]">
+                      <span className="pl-3">+ {portionQty}x Teh Tawar Hangat</span>
+                      <span>Rp {drinksTotal.toLocaleString('id-ID')}</span>
+                    </div>
+                  )}
 
                   {selectedToppings.map((topId) => {
                     const t = EXTRA_TOPPINGS.find((item) => item.id === topId);
@@ -533,7 +673,7 @@ export default function LokasiSection() {
                     className="flex-1 w-full py-3.5 px-6 bg-[#007735] text-white rounded-2xl text-sm font-bold hover:bg-[#005c27] shadow-[0_6px_20px_rgba(0,119,53,0.3)] flex items-center justify-center gap-2 active:scale-98 transition-all"
                   >
                     <span className="material-symbols-outlined text-[22px]">chat</span>
-                    <span>Kirim Pesanan ke WhatsApp Sekarang</span>
+                    <span>Kirim Pesanan ke WA ({targetContact === 'owner' ? 'Bapak Asep' : 'Lapak Sangtau'})</span>
                   </button>
 
                   <button
@@ -572,6 +712,146 @@ export default function LokasiSection() {
           {/* Right Column: Location Bento, Contact & Interactive FAQ (5 Cols) */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             
+            {/* Dual Official Contact Bento Card */}
+            <div className="bg-white p-6 sm:p-7 rounded-3xl shadow-sm border border-[#e0bfb9]/40 flex flex-col gap-4">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className="px-3 py-1 rounded-full bg-[#ffdcc3] text-[#6e3900] text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[16px] text-[#904d00]">contacts</span>
+                  Kontak Resmi Kedai
+                </span>
+                <span className="text-xs font-bold text-[#005c27] flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[16px]">verified</span>
+                  Respon Cepat
+                </span>
+              </div>
+
+              <div>
+                <h3 className="font-['Epilogue'] text-xl font-bold text-[#1e1b19]">
+                  Hubungi Langsung Kedai
+                </h3>
+                <p className="text-xs sm:text-sm text-[#59413c] mt-0.5">
+                  Tersedia 2 saluran kontak langsung via WhatsApp & Telepon:
+                </p>
+              </div>
+
+              {copiedContact && (
+                <div className="p-2.5 rounded-xl bg-[#95f8a7]/40 text-[#00210a] text-xs font-bold flex items-center gap-2 animate-fade-in">
+                  <span className="material-symbols-outlined text-[18px] text-[#005c27]">check</span>
+                  <span>Nomor {copiedContact} berhasil disalin ke clipboard!</span>
+                </div>
+              )}
+
+              <div className="flex flex-col gap-3">
+                {/* Contact 1: Lapak Sangtau eRTe */}
+                <div className="p-4 rounded-2xl bg-[#faf2ee] border border-[#e0bfb9]/40 flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-[#96220e] text-[22px]">storefront</span>
+                      <div>
+                        <span className="text-sm font-extrabold text-[#1e1b19] block leading-tight">
+                          {CONTACT_INFO.lapak.label}
+                        </span>
+                        <span className="text-[11px] text-[#8d716b]">
+                          {CONTACT_INFO.lapak.role}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="px-2 py-0.5 rounded-md bg-[#ffdcc3] text-[#6e3900] text-[10px] font-extrabold">
+                      Pesanan Kedai
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    <span className="font-mono text-sm font-bold text-[#96220e]">
+                      {CONTACT_INFO.lapak.phone}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyContact(CONTACT_INFO.lapak.phone, CONTACT_INFO.lapak.label)}
+                      className="text-xs font-bold text-[#59413c] hover:text-[#96220e] flex items-center gap-1 cursor-pointer transition-colors"
+                      title="Salin Nomor Lapak"
+                    >
+                      <span className="material-symbols-outlined text-[16px]">content_copy</span>
+                      <span className="text-[11px]">Salin</span>
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-[#e0bfb9]/30">
+                    <a
+                      href={CONTACT_INFO.lapak.waLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2 px-3 rounded-xl bg-[#007735] text-white text-xs font-bold hover:bg-[#005c27] transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                    >
+                      <span className="material-symbols-outlined text-[16px]">chat</span>
+                      <span>Chat WhatsApp</span>
+                    </a>
+                    <a
+                      href={`tel:${CONTACT_INFO.lapak.phoneRaw}`}
+                      className="py-2 px-3 rounded-xl bg-white text-[#1e1b19] border border-[#e0bfb9]/50 text-xs font-bold hover:bg-[#eee7e3] transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <span className="material-symbols-outlined text-[16px] text-[#96220e]">call</span>
+                      <span>Telepon</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Contact 2: Bapak Asep */}
+                <div className="p-4 rounded-2xl bg-[#faf2ee] border border-[#e0bfb9]/40 flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="material-symbols-outlined text-[#005c27] text-[22px]">person</span>
+                      <div>
+                        <span className="text-sm font-extrabold text-[#1e1b19] block leading-tight">
+                          {CONTACT_INFO.owner.label}
+                        </span>
+                        <span className="text-[11px] text-[#8d716b]">
+                          {CONTACT_INFO.owner.role}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="px-2 py-0.5 rounded-md bg-[#95f8a7] text-[#00210a] text-[10px] font-extrabold">
+                      Katering & Pengelola
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    <span className="font-mono text-sm font-bold text-[#005c27]">
+                      {CONTACT_INFO.owner.phone}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyContact(CONTACT_INFO.owner.phone, CONTACT_INFO.owner.label)}
+                      className="text-xs font-bold text-[#59413c] hover:text-[#005c27] flex items-center gap-1 cursor-pointer transition-colors"
+                      title="Salin Nomor Bapak Asep"
+                    >
+                      <span className="material-symbols-outlined text-[16px]">content_copy</span>
+                      <span className="text-[11px]">Salin</span>
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 pt-1 border-t border-[#e0bfb9]/30">
+                    <a
+                      href={CONTACT_INFO.owner.waLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-2 px-3 rounded-xl bg-[#007735] text-white text-xs font-bold hover:bg-[#005c27] transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                    >
+                      <span className="material-symbols-outlined text-[16px]">chat</span>
+                      <span>Chat WhatsApp</span>
+                    </a>
+                    <a
+                      href={`tel:${CONTACT_INFO.owner.phoneRaw}`}
+                      className="py-2 px-3 rounded-xl bg-white text-[#1e1b19] border border-[#e0bfb9]/50 text-xs font-bold hover:bg-[#eee7e3] transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <span className="material-symbols-outlined text-[16px] text-[#005c27]">call</span>
+                      <span>Telepon</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Physical Location Bento Card */}
             <div className="bg-white p-6 sm:p-7 rounded-3xl shadow-sm border border-[#e0bfb9]/40 flex flex-col gap-5">
               <div className="flex items-center justify-between flex-wrap gap-2">
